@@ -4,6 +4,9 @@ import { ProductGallery } from '@/components/ProductGallery';
 import { ProductInfo } from '@/components/ProductInfo';
 import { ProductAccordion } from '@/components/ProductAccordion';
 import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
+import ClinicalStudiesSection from '@/components/ClinicalStudiesSection';
+import StaticReviewsSection from '@/components/StaticReviewsSection';
+import { FivePillars } from '@/components/FivePillars';
 // import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 // import { ClinicalStudyBanner } from '@/components/ClinicalStudyBanner';
 // import { StickyAddToCart } from '@/components/StickyAddToCart';
@@ -55,13 +58,11 @@ export default function Home() {
       </main>
 
 
-      
-
-     
       {/* <ClinicalStudyBanner /> */}
+        <ClinicalStudiesSection />
 
       {/* Customer Reviews */}
-      {/* <CustomerReviews /> */}
+      <StaticReviewsSection />
 
       {/* Body Systems Support */}
       {/* <BodySystemsSupport /> */}
@@ -73,7 +74,7 @@ export default function Home() {
       {/* <ComparisonTable /> */}
 
       {/* Five Pillars */}
-      {/* <FivePillars /> */}
+      <FivePillars />
 
       {/* Trusted Experts */}
       {/* <TrustedExperts /> */}
