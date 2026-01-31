@@ -6,7 +6,7 @@ const plans = [
     id: '90day',
     name: '90-Day Supply',
     discount: '(Save 30%)',
-    discountColor: '#16A34A',
+    discountColor: 'text-green-600', // Sử dụng class Tailwind
     price: '€91',
     period: '/mo',
     billing: 'Billed €273,00 EUR every 12 weeks',
@@ -28,6 +28,7 @@ const plans = [
     id: '30day',
     name: '30-Day Supply',
     discount: '(Save 20%)',
+    discountColor: 'text-[#50000b]',
     price: '€105',
     period: '/mo',
     billing: 'Billed €105,00 EUR every 4 weeks',
@@ -45,152 +46,88 @@ export const SubscriptionSelector = () => {
   const [selectedPlan, setSelectedPlan] = useState('90day');
 
   return (
-    <fieldset style={{ border: 'none', padding: 0, margin: '16px 0' }}>
-      <legend style={{ padding: 0, marginBottom: '12px' }}>
-        <div style={{ 
-          fontFamily: 'var(--font-body-family)',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: '#50000b'
-        }}>
+    <fieldset className="border-none p-0 my-4">
+      <legend className="p-0 mb-3">
+        <div className="font-body text-[16px] font-bold text-[#50000b]">
           2. Subscribe &amp; Save:
         </div>
       </legend>
       
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      <div className="flex flex-col gap-3">
         {plans.map((plan) => (
           <div 
             key={plan.id} 
-            className={plan.isQuarterly ? 'quarterly-variant-wrapper product-variant-option-wrapper' : 'product-variant-option-wrapper'}
-            style={{ position: 'relative' }}
+            className="relative"
           >
             <input
               type="radio"
               id={`plan-${plan.id}`}
               name="Plan"
-              value={plan.name}
+              className="absolute opacity-0 pointer-events-none"
               checked={selectedPlan === plan.id}
               onChange={() => setSelectedPlan(plan.id)}
-              style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
             />
             <label
               htmlFor={`plan-${plan.id}`}
-              className={plan.isQuarterly ? 'quarterly-variant-label' : ''}
-              style={{
-                display: 'block',
-                border: selectedPlan === plan.id ? '2px solid #50000b' : '1px solid rgba(80, 0, 11, 0.2)',
-                padding: '16px',
-                paddingTop: (plan.leftBadge || plan.rightBadge) ? '20px' : '16px',
-                borderRadius: '40px',
-                background: selectedPlan === plan.id ? 'rgba(80, 0, 11, 0.02)' : 'transparent',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
+              className={`
+                block p-4 rounded-[16px] cursor-pointer transition-all shadow-im8 duration-200
+                ${plan.leftBadge || plan.rightBadge ? 'pt-5' : 'p-4'}
+                ${selectedPlan === plan.id 
+                  ? 'border-[1px] border-[#A40011] bg-[#A40011]/[0.02]' 
+                  : 'border border-[#50000b]/20 bg-transparent'}
+              `}
             >
-              {/* Checkbox */}
+              {/* Checkbox Icon */}
               <div 
-                className="variant_option_checkbox"
+                className={`
+                  inline-block w-6 h-6 min-w-[24px] mr-1 align-top shrink-0 transition-all
+                  bg-contain bg-no-repeat bg-center
+                `}
                 style={{
-                  display: 'inline-block',
-                  width: '24px',
-                  height: '24px',
-                  minWidth: '24px',
-                  background: selectedPlan === plan.id 
-                    ? 'url(https://im8health.com/cdn/shop/t/121/assets/radio_fill.svg) no-repeat center center' 
-                    : 'url(https://im8health.com/cdn/shop/t/121/assets/radio_blank.svg) no-repeat center',
-                  backgroundSize: 'contain',
-                  marginRight: '4px',
-                  marginBottom: 'auto',
-                  verticalAlign: 'top',
-                  flexShrink: 0,
-                  transition: 'background-color .18s cubic-bezier(.22, 1, .36, 1), border-color .12s cubic-bezier(0, 0, .2, 1), box-shadow .25s cubic-bezier(.22, 1, .36, 1), filter .22s cubic-bezier(.22, 1, .36, 1)',
+                  backgroundImage: selectedPlan === plan.id 
+                    ? 'url(https://im8health.com/cdn/shop/t/121/assets/radio_fill.svg)' 
+                    : 'url(https://im8health.com/cdn/shop/t/121/assets/radio_blank.svg)'
                 }}
-              >
-              </div>
+              />
               
-              <div className="variant_option_new" style={{ display: 'inline-block', width: 'calc(100% - 36px)', verticalAlign: 'top' }}>
-                {/* Left Badge - NEW YEAR OFFER */}
+              <div className="inline-block w-[calc(100%-36px)] align-top">
+                {/* Left Badge */}
                 {plan.leftBadge && (
-                  <div
-                    className="variant_holiday_deal_badge"
-                    style={{
-                      fontFamily: 'var(--font-nb-architekt)',
-                      position: 'absolute',
-                      left: '16px',
-                      top: '-9px',
-                      background: '#FEC63F',
-                      color: '#50000b',
-                      textAlign: 'center',
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      lineHeight: '8px',
-                      textTransform: 'uppercase',
-                      padding: '5px 15px',
-                      letterSpacing: '0',
-                      borderRadius: '4rem',
-                    }}
-                  >
+                  <div className="absolute left-4 -top-[9px] bg-[#FEC63F] text-[#50000b] text-[10px] font-bold px-[15px] py-[5px] rounded-full uppercase tracking-normal leading-[8px] font-architekt">
                     {plan.leftBadge}
                   </div>
                 )}
                 
-                {/* Right Badge - BEST VALUE */}
+                {/* Right Badge */}
                 {plan.rightBadge && (
-                  <div
-                    className="variant_best_value_new"
-                    style={{
-                      fontFamily: 'var(--font-nb-architekt)',
-                      position: 'absolute',
-                      right: '16px',
-                      top: '-9px',
-                      background: '#a40011',
-                      color: '#fff',
-                      textAlign: 'center',
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      lineHeight: '8px',
-                      textTransform: 'uppercase',
-                      padding: '5px 15px',
-                      letterSpacing: '0',
-                      borderRadius: '4rem',
-                    }}
-                  >
+                  <div className="absolute right-4 -top-[9px] bg-[#a40011] text-white text-[10px] font-bold px-[15px] py-[5px] rounded-full uppercase tracking-normal leading-[8px] font-architekt">
                     {plan.rightBadge}
                   </div>
                 )}
                 
-                {/* Top Row - Name & Price */}
-                <div className="variant_option_top_new" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
-                  <span className="variant_name_new" style={{ fontFamily: 'var(--font-body-family)', fontSize: '15px', fontWeight: 500, color: '#50000b' }}>
+                {/* Top Row */}
+                <div className="flex justify-between items-baseline mb-1">
+                  <span className="font-body text-[15px] font-medium text-[#50000b]">
                     {plan.name}{' '}
-                    <span style={{ color: plan.discountColor || '#50000b' }}>{plan.discount}</span>
+                    <span className={plan.discountColor}>{plan.discount}</span>
                   </span>
                   
-                  <span className="variant_option_price">
-                    <span className="formatted-price" style={{ fontFamily: 'var(--font-body-family)', fontSize: '16px', fontWeight: 500, color: '#50000b' }}>
-                      {plan.price}
-                    </span>
-                    <span className="variant_price_suffix" style={{ fontSize: '13px', color: '#50000b', opacity: 0.75 }}>
-                      {plan.period}
-                    </span>
+                  <span className="text-[#50000b]">
+                    <span className="font-body text-[16px] font-medium">{plan.price}</span>
+                    <span className="text-[13px] opacity-75">{plan.period}</span>
                   </span>
                 </div>
                 
-                {/* Bottom Row - Billing & Price per Serving */}
-                <div className="variant_option_bottom_new" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '13px', color: '#50000b', marginBottom: '12px' }}>
-                  <span className="variant_servings_new" style={{ opacity: 0.75 }}>
-                    {plan.billing}
-                  </span>
-                  
-                  <span className="variant_servings_price_new" style={{ fontWeight: 500, whiteSpace: 'nowrap' }}>
-                    {plan.pricePerServing}
-                  </span>
+                {/* Bottom Row */}
+                <div className="flex justify-between items-center text-[13px] text-[#50000b] mb-3">
+                  <span className="opacity-75">{plan.billing}</span>
+                  <span className="font-medium whitespace-nowrap">{plan.pricePerServing}</span>
                 </div>
                 
                 {/* Features List */}
-                <ul className="variant_option_description" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                <ul className="list-none p-0 m-0">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} style={{ fontFamily: 'var(--font-body-family)', fontSize: '13px', color: '#50000b', lineHeight: '1.6', marginBottom: '4px' }}>
+                    <li key={idx} className="font-body text-[13px] text-[#50000b] leading-[1.6] mb-1">
                       {feature}
                     </li>
                   ))}
@@ -200,31 +137,14 @@ export const SubscriptionSelector = () => {
           </div>
         ))}
         
-        {/* One Time Purchase Link */}
-        <div className="one-time-purchase-standalone" style={{ textAlign: 'center', margin: 0, padding: 0 }}>
+        {/* One Time Purchase */}
+        <div className="text-center m-0 p-0">
           <a 
             href="#" 
-            className="one-time-purchase-link"
-            style={{
-              display: 'inline-block',
-              fontFamily: 'var(--font-body-family)',
-              fontSize: '14px',
-              fontWeight: 500,
-              color: '#50000b',
-              textDecoration: 'underline',
-              textUnderlineOffset: '3px',
-              cursor: 'pointer',
-              transition: 'opacity 0.2s',
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              // Handle one-time purchase
-            }}
+            className="inline-block font-body text-[14px] font-medium text-[#50000b] underline underline-offset-[3px] transition-opacity hover:opacity-80"
+            onClick={(e) => e.preventDefault()}
           >
-            One Time Purchase{' '}
-            <span className="otp-price">
-              <span className="formatted-price" style={{ fontWeight: 500 }}>€130</span>
-            </span>
+            One Time Purchase <span className="font-medium">€130</span>
           </a>
         </div>
       </div>

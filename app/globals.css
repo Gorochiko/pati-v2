@@ -121,7 +121,15 @@
     --page-width: 150rem;
     --duration-announcement-bar: 250ms;
   }
-
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
   .dark {
     --background: 0 0% 5%;
     --foreground: 0 0% 95%;

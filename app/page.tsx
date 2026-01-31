@@ -2,6 +2,7 @@ import { Header } from '@/components/Header';
 import { ProductGallery } from '@/components/ProductGallery';
 import { ProductInfo } from '@/components/ProductInfo';
 import { ProductAccordion } from '@/components/ProductAccordion';
+import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 // import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 // import { ClinicalStudyBanner } from '@/components/ClinicalStudyBanner';
 // import { StickyAddToCart } from '@/components/StickyAddToCart';
@@ -45,15 +46,16 @@ export default function Home() {
             <div className="space-y-6">
               <ProductInfo />
               <ProductAccordion />
+              <AmbassadorTestimonials />
             </div>
           </div>
         </div>
       </main>
 
-      {/* Ambassador Testimonials */}
-      {/* <AmbassadorTestimonials /> */}
 
-      {/* Clinical Study Banner */}
+      
+
+     
       {/* <ClinicalStudyBanner /> */}
 
       {/* Customer Reviews */}

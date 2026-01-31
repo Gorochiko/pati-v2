@@ -1,151 +1,77 @@
 "use client";
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const formats = [
   {
     id: 'forever-jar',
     name: 'Forever Jar',
+    description: '(354g) €3,50 EUR / serving',
     image: 'https://im8health.com/cdn/shop/files/UX-Input_1.jpg?v=8068906590217553853',
-    weight: '(354g)',
-    servingPrice: '€3,03 EUR',
     badge: 'MOST POPULAR',
   },
   {
     id: 'sachets',
     name: 'Single-Serve Sachets',
-    image: 'https://im8health.com/cdn/shop/files/UX-Input_2.jpg?v=4366596284312861834',
-    weight: '(354g)',
-    servingPrice: '€3,39 EUR',
+    description: '(354g) €3,90 EUR / serving',
+    image: '//im8health.com/cdn/shop/files/UX-Input_2.jpg?v=4366596284312861834',
+    badge: null,
   },
 ];
 
 export const FormatSelector = () => {
-  const [selectedFormat, setSelectedFormat] = useState('forever-jar');
+  const [selected, setSelected] = useState('forever-jar');
 
   return (
-    <fieldset style={{ border: 'none', padding: 0, margin: '16px 0' }}>
-      <legend style={{ padding: 0, marginBottom: '12px' }}>
-        <div style={{ 
-          fontFamily: 'var(--font-body-family)',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: '#50000b'
-        }}>
-          1. Select Format:
-        </div>
-      </legend>
-      
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+    /* Giới hạn max-width nhỏ lại (khoảng 600px-700px) để phù hợp với sidebar hoặc form mua hàng */
+    <div className="w-full max-w-[650px] bg-white">
+      <h3 className="font-body text-[16px] font-bold text-[#50000b]">
+        1. Select Format:
+      </h3>
+
+      <div className="flex flex-col sm:flex-row gap-3 items-start">
         {formats.map((format) => (
-          <div 
-            key={format.id} 
-            className="product-variant-option-wrapper"
-            style={{ 
-              position: 'relative',
-              flexBasis: 'calc(50% - 4px)',
-              height: 'auto'
-            }}
-          >
-            <input
-              type="radio"
-              id={format.id}
-              name="Format"
-              value={format.id}
-              checked={selectedFormat === format.id}
-              onChange={(e) => setSelectedFormat(e.target.value)}
-              style={{ position: 'absolute', opacity: 0, pointerEvents: 'none' }}
-            />
-            <label
-              htmlFor={format.id}
-              style={{
-                display: 'block',
-                padding: '16px',
-                border: selectedFormat === format.id ? '2px solid #50000b' : '1px solid rgba(80, 0, 11, 0.2)',
-                borderRadius: '40px',
-                background: selectedFormat === format.id ? 'rgba(80, 0, 11, 0.02)' : 'transparent',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
-            >
-              {/* Product Image */}
-              <img
-                src={format.image}
-                className="product-variant-option-image"
-                width="60"
-                height="100%"
-                alt={format.name}
-                style={{ display: 'block', margin: '0 auto 12px' }}
-              />
-              
-              {/* Variant Details */}
-              <div className="variant_option_new">
-                {/* Badge */}da
-                {format.badge && (
-                  <div 
-                    className="variant_best_value_new"
-                    style={{ 
-                      fontFamily: 'var(--font-nb-architekt)',
-                      background: '#a40011',
-                      color: '#fff',
-                      textAlign: 'center',
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      lineHeight: '8px',
-                      textTransform: 'uppercase',
-                      padding: '5px 15px',
-                      letterSpacing: '0',
-                      borderRadius: '4rem',
-                      marginBottom: '8px'
-                    }}
-                  >
-                    {format.badge}
-                  </div>
-                )}
-                
-                {/* Name */}
-                <div className="variant_option_top_new" style={{ marginBottom: '4px' }}>
-                  <span className="variant_name_new" style={{ 
-                    fontFamily: 'var(--font-body-family)', 
-                    fontSize: '15px', 
-                    fontWeight: 500, 
-                    color: '#50000b',
-                    display: 'block',
-                    textAlign: 'center'
-                  }}>
-                    {format.name}
-                  </span>
-                </div>
-                
-                {/* Weight & Price */}
-                <div className="variant_option_bottom_new" style={{ 
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  gap: '4px'
-                }}>
-                  <span style={{ 
-                    fontFamily: 'var(--font-body-family)', 
-                    fontSize: '13px', 
-                    color: '#50000b'
-                  }}>
-                    {format.weight}
-                  </span>
-                  
-                  <span className="variant_servings_price_new" style={{ 
-                    fontFamily: 'var(--font-body-family)', 
-                    fontSize: '13px', 
-                    fontWeight: 500, 
-                    color: '#50000b'
-                  }}>
-                    {format.servingPrice} / serving
-                  </span>
-                </div>
+          <div key={format.id} className="relative pt-2.5 w-full sm:w-1/2">
+            {/* Badge - Tinh chỉnh vị trí và font */}
+            {format.badge && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 sm:left-auto sm:right-6 sm:translate-x-0 z-10 bg-[#e30000] text-white text-[9px] font-black px-3 py-1 rounded-full shadow-sm whitespace-nowrap leading-none tracking-tighter">
+                {format.badge}
               </div>
-            </label>
+            )}
+
+            <button
+              onClick={() => setSelected(format.id)}
+              className={`
+                relative w-full flex items-stretch rounded-[18px] overflow-hidden transition-all duration-200 text-left min-h-[90px]
+                ${selected === format.id 
+                  ? 'ring-1 ring-[#50000b] bg-[#fdfaf8]' 
+                  : 'border border-gray-200 bg-white hover:border-[#50000b]/40'}
+              `}
+            >
+              {/* Left Side: Giảm tỉ lệ từ 1/3 xuống 1/4 (25%) để dành chỗ cho text */}
+              <div className="w-[28%] bg-gradient-to-b from-[#f5d9c5] to-[#f9be9a] flex items-center justify-center p-2">
+                <img 
+                  src={format.image} 
+                  alt={format.name}
+                  className="w-full h-full object-contain scale-110 drop-shadow-sm"
+                />
+              </div>
+
+              {/* Right Side: Text Content - Chống xuống hàng */}
+              <div className="w-[72%] flex flex-col justify-center px-3 py-2 overflow-hidden">
+                <h3 
+                  className="text-[#50000b] text-[16px] md:text-[18px] leading-tight mb-0.5 whitespace-nowrap" 
+                  style={{ fontFamily: '"ABC Arizona Flare", serif', fontWeight: 500 }}
+                >
+                  {format.name}
+                </h3>
+                <p className="text-[#50000b] text-[11px] opacity-80 whitespace-nowrap overflow-hidden text-ellipsis">
+                  {format.description}
+                </p>
+              </div>
+            </button>
           </div>
         ))}
       </div>
-    </fieldset>
+    </div>
   );
 };
-
