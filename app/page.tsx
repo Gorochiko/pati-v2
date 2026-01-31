@@ -7,6 +7,9 @@ import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 import ClinicalStudiesSection from '@/components/ClinicalStudiesSection';
 import StaticReviewsSection from '@/components/StaticReviewsSection';
 import { FivePillars } from '@/components/FivePillars';
+import OrganSystems from '@/components/OrganSystems';
+// import OrganSystems from '@/components/OrganSystems';
+// import {ComparisonTable} from '../components/ComparisonTable';
 // import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 // import { ClinicalStudyBanner } from '@/components/ClinicalStudyBanner';
 // import { StickyAddToCart } from '@/components/StickyAddToCart';
@@ -47,7 +50,7 @@ export default function Home() {
               <ProductGallery />
             </div>
 
-            {/* Right Column - Product Info */} 
+            {/* Right Column - Product Info */}
             <div className="space-y-6">
               <ProductInfo />
               <ProductAccordion />
@@ -59,11 +62,13 @@ export default function Home() {
 
 
       {/* <ClinicalStudyBanner /> */}
-        <ClinicalStudiesSection />
+      <ClinicalStudiesSection />
 
       {/* Customer Reviews */}
       <StaticReviewsSection />
 
+      {/* Organ Systems */}
+      <OrganSystems />
       {/* Body Systems Support */}
       {/* <BodySystemsSupport /> */}
 

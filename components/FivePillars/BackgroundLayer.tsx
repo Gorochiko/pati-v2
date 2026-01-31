@@ -10,8 +10,8 @@ export const BackgroundLayer = () => {
       {/* Background Images - All devices */}
       {isEssentials ? (
         <div className="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
-          <img
-            src="//im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=1200"
+          <img  
+            src="https://im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=1200"
             srcSet="//im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=600 600w, //im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=900 900w, //im8health.com/cdn/shop/files/Screenshot_2025-12-22_at_7.44.31_PM.png?v=1766404140&width=1200 1200w"
             sizes="100vw"
             alt=""
@@ -85,8 +85,8 @@ export const BackgroundLayer = () => {
         className="absolute inset-0 pointer-events-none z-[1] transition-opacity duration-700"
         style={{
           background: isEssentials 
-            ? 'linear-gradient(180deg, rgba(245, 234, 234, 0.6) 0%, rgba(245, 234, 234, 0.4) 10%, rgba(245, 234, 234, 0.2) 20%, rgba(245, 234, 234, 0.1) 30%, transparent 50%)'
-            : 'linear-gradient(180deg, rgba(250, 247, 238, 0.6) 0%, rgba(250, 247, 238, 0.4) 10%, rgba(250, 247, 238, 0.2) 20%, rgba(250, 247, 238, 0.1) 30%, transparent 50%)'
+            ? 'linear-gradient(180deg, rgba(245, 234, 234, 0.4) 0%, rgba(245, 234, 234, 0.3) 10%, rgba(245, 234, 234, 0.15) 20%, rgba(245, 234, 234, 0.05) 30%, transparent 50%)'
+            : 'linear-gradient(180deg, rgba(250, 247, 238, 0.4) 0%, rgba(250, 247, 238, 0.3) 10%, rgba(250, 247, 238, 0.15) 20%, rgba(250, 247, 238, 0.05) 30%, transparent 50%)'
         }}
         aria-hidden="true"
       />

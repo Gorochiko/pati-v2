@@ -1,0 +1,113 @@
+/* ============================================================================
+   ORGAN SYSTEMS - Premium Animations
+   GPU-accelerated keyframe animations for dimensional grid and glows
+   ============================================================================ */
+
+/* Grid Animations - PERFORMANCE OPTIMIZED */
+/* Use transform3d for GPU acceleration */
+@keyframes gridScrollVertical {
+  0% {
+    transform: rotateX(70deg) translateZ(-100px) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotateX(70deg) translateZ(-100px) translate3d(0, 80px, 0);
+  }
+}
+
+@keyframes gridScrollHorizontal {
+  0% {
+    transform: rotateX(70deg) translateZ(-100px) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotateX(70deg) translateZ(-100px) translate3d(80px, 0, 0);
+  }
+}
+
+@keyframes gridGlowPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes orbPulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.65;
+  }
+}
+
+/* Content Fade In Animation */
+@keyframes osContentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Detail Panel Fade In Animation */
+@keyframes detailFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Tailwind Animation Classes */
+.animate-gridScrollVertical {
+  animation: gridScrollVertical 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-gridScrollHorizontal {
+  animation: gridScrollHorizontal 25s linear infinite;
+  will-change: transform;
+}
+
+.animate-gridGlowPulse {
+  animation: gridGlowPulse 12s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.animate-orbPulse {
+  animation: orbPulse 15s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.animate-detailFadeIn {
+  animation: detailFadeIn 280ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .animate-gridScrollVertical,
+  .animate-gridScrollHorizontal,
+  .animate-gridGlowPulse,
+  .animate-orbPulse,
+  .animate-detailFadeIn {
+    animation: none !important;
+  }
+}
+
+/* Mobile optimization - disable heavy animations */
+@media (max-width: 749px) {
+  .animate-gridScrollVertical,
+  .animate-gridScrollHorizontal,
+  .animate-gridGlowPulse {
+    animation: none !important;
+  }
+}
