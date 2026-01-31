@@ -14,23 +14,12 @@ export const ProductSubmitButton = ({ selectedPlan = '90day' }) => {
       <button
         type="submit"
         className={`
-          /* Cấu trúc Flexbox & Kích thước */
           flex items-center justify-center w-full min-h-[48px] min-w-[272px] p-[5px]
-          
-          /* Màu sắc & Background (Khớp --color-foreground: 80,0,11) */
           bg-[#50000b] text-white
-          
-          /* Typography (Khớp font-size: 16px, weight: 700, letter-spacing: .32px) */
           font-['Aeonik',sans-serif] text-[16px] font-bold uppercase leading-[22px] tracking-[0.32px]
-          
-          /* Border & Radius (Khớp border-radius: 100px) */
           border-0 rounded-[100px]
-          
-          /* Hiệu ứng & Cursor */
           cursor-pointer appearance-none transition-all duration-300 linear
           hover:opacity-90 active:scale-[0.98]
-          
-          /* Định vị */
           relative overflow-hidden
         `}
       >

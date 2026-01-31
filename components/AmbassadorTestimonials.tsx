@@ -70,8 +70,19 @@ export const AmbassadorTestimonials = () => {
 
   useEffect(() => {
     if (selectedVideo && videoRef.current) {
-      videoRef.current.play();
+      const playPromise = videoRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log('Video play interrupted:', error);
+        });
+      }
     }
+        return () => {
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    };
   }, [selectedVideo]);
 
   return (

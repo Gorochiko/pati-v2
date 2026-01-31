@@ -1,4 +1,5 @@
 import { Header } from '@/components/Header';
+import { StickyPromoBar } from '@/components/StickyPromoBar';
 import { ProductGallery } from '@/components/ProductGallery';
 import { ProductInfo } from '@/components/ProductInfo';
 import { ProductAccordion } from '@/components/ProductAccordion';
@@ -23,6 +24,7 @@ import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
+      <StickyPromoBar />
       <Header />
 
       {/* Product Section */}

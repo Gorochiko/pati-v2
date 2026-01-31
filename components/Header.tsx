@@ -1,266 +1,214 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Search, User, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, EffectFade } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/effect-fade';
+import { useState } from 'react';
+import { ChevronDown, User, ShoppingCart } from 'lucide-react';
+import { useHeaderVisibility } from '@/hooks/use-header-visibility';
 
-const navItems = [
-  { label: 'Shop', hasDropdown: true },
-  { label: 'Science', hasDropdown: false },
-  { label: 'The Beckham Stack', hasDropdown: false },
-  { label: 'Welcome from David', hasDropdown: false },
+const leftNavItems = [
+  { label: 'Shop', href: '/collections/all' },
+  { label: 'Science', href: '/pages/science' },
+  { label: 'The Beckham Stack', href: '/products/beckhamstack' },
+  { label: 'Welcome from David', href: '/pages/welcome' },
 ];
 
 const rightNavItems = [
-  { label: 'Reviews', hasDropdown: false },
-  { label: 'Ingredients', hasDropdown: false },
-  { label: 'Discover', hasDropdown: true },
-];
-
-const announcementSlides = [
-  {
-    id: 1,
-    text: (
-      <>
-        <strong>2026 STARTS NOW:</strong>
-        <span className="mobile-break">35% OFF — Feel Like Yourself Again</span>
-      </>
-    ),
-  },
+  { label: 'Reviews', href: '/pages/wall-of-health' },
+  { label: 'Ingredients', href: '/pages/ingredients' },
+  { label: 'Discover', href: '#' },
 ];
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
+  const [isDiscoverMenuOpen, setIsDiscoverMenuOpen] = useState(false);
+  const isHidden = useHeaderVisibility(100);
+
 
   return (
     <>
       {/* Announcement Bar */}
       <a
         href="/pages/newyearoffer"
-        className="relative block text-white no-underline cursor-pointer"
-        style={{ 
+        className={`relative block text-white no-underline cursor-pointer transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'
+          }`}
+        style={{
           background: '#a40011',
           textDecoration: 'none',
         }}
       >
-        {/* Currency Selector - Absolute positioned on left */}
-        <div 
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 hidden sm:block"
-        >
-          <button 
-            className="flex items-center gap-1 text-white text-xs font-bold uppercase hover:opacity-90 transition-opacity"
-            style={{
-              background: '#8B0013',
-              padding: '4px 8px',
-              borderRadius: '2px',
-              letterSpacing: '0.5px',
-            }}
-          >
-            EUR
-            <ChevronDown className="w-3 h-3" />
-          </button>
-        </div>
-
-        <div className="max-w-[150rem] mx-auto">
-          <div className="px-4 sm:px-6">
-            <div className="py-2.5">
-              <Swiper
-                modules={[Autoplay, EffectFade]}
-                loop={true}
-                grabCursor={true}
-                spaceBetween={0}
-                slidesPerView={1}
-                watchSlidesProgress={true}
-                effect="fade"
-                fadeEffect={{
-                  crossFade: true
-                }}
-                autoplay={{
-                  delay: 1500,
-                  disableOnInteraction: false,
-                }}
-                className="w-full"
-              >
-                {announcementSlides.map((slide) => (
-                  <SwiperSlide key={slide.id}>
-                    <div className="text-center">
-                      <div 
-                        className="uppercase"
-                        style={{
-                          fontFamily: '"NB Architekt", sans-serif',
-                          fontSize: '14px',
-                          fontWeight: '700',
-                          lineHeight: '19px',
-                          letterSpacing: '0.28px',
-                          textAlign: 'center',
-                          color: 'inherit',
-                        }}
-                      >
-                        {slide.text}
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+        {/* Announcement Text */}
+        <div className="max-w-[150rem] mx-auto px-6">
+          <div className="py-2.5 text-center">
+            <div
+              className="uppercase text-sm font-bold tracking-wide leading-tight"
+              style={{ fontFamily: 'NB Architekt, sans-serif' }}
+            >
+              <strong>2026 STARTS NOW:</strong>{' '}
+              <span className="hidden sm:inline">35% OFF — Feel Like Yourself Again</span>
+              <span className="sm:hidden block">35% OFF</span>
             </div>
           </div>
+        </div>
+
+        {/* Currency Selector - Desktop */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+          <button
+            className="flex items-center gap-1 text-white text-xs font-bold uppercase tracking-wide"
+            style={{ fontFamily: 'NB Architekt, sans-serif' }}
+          >
+            <span>EUR</span>
+            <svg width="12" height="13" viewBox="0 0 12 13" fill="none" className="w-3 h-3">
+              <path d="M9 4.8125L5.625 8.1875L2.25 4.8125" stroke="white" strokeWidth="2" strokeLinecap="square" />
+            </svg>
+          </button>
         </div>
       </a>
 
-      <style jsx>{`
-        @media screen and (max-width: 768px) {
-          .mobile-break {
-            display: block;
-          }
-        }
-
-        /* Even smaller screens */
-        @media screen and (max-width: 380px) {
-          :global(.announcement-text) {
-            font-size: 10px !important;
-            line-height: 1.25 !important;
-          }
-        }
-      `}</style>
-
       {/* Main Header */}
-      <header 
-        className="bg-white border-b sticky top-0 z-50"
-        style={{
-          height: 'var(--header-height)',
-          borderBottomColor: 'rgba(80, 0, 11, 0.1)',
-          fontFamily: '"Aeonik", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-        }}
+      <header
+        className={`bg-white border-b border-[rgba(80,0,11,0.08)] sticky top-0 z-[9] transition-transform duration-300 ${isHidden ? '-translate-y-full' : 'translate-y-0'
+          }`}
+        style={{ fontFamily: 'Aeonik, sans-serif' }}
       >
-        <div className="max-w-[150rem] mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-16">
-            {/* Left Navigation - Desktop */}
-            <nav className="hidden lg:flex items-center gap-6">
-              {navItems.map((item) => (
-                <button
-                  key={item.label}
-                  className="flex items-center gap-1 text-[14px] font-normal hover:opacity-85 transition-opacity"
-                  style={{ 
-                    color: 'rgb(80, 0, 11)',
-                    letterSpacing: '0',
-                  }}
-                >
-                  {item.label}
-                  {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                </button>
-              ))}
-            </nav>
+        <div className="max-w-[150rem] mx-auto px-8 lg:px-[200px] h-16">
+          <div className="grid grid-cols-[1fr_2fr_1fr] lg:grid-cols-3 items-center h-full">
 
-            {/* Mobile Menu Button */}
-            <button
-              className="lg:hidden p-2 -ml-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-              style={{ color: 'rgb(80, 0, 11)' }}
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
-            </button>
+            {/* Left Section */}
+            <div className="flex items-center justify-start">
+              {/* Mobile Hamburger */}
+              <button
+                className="lg:hidden p-2 -ml-2 hover:opacity-70"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M2 16H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
+                  <path d="M2 7H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
+                  <path d="M2 25H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
+                </svg>
+              </button>
 
-            {/* Logo */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 lg:static lg:transform-none">
-              <a href="/" className="flex items-center">
-                <span 
-                  className="text-2xl lg:text-3xl font-medium tracking-[0.3em]"
-                  style={{ 
-                    color: 'rgb(164, 0, 17)',
-                    fontWeight: '500',
-                  }}
-                >
-                  I·M·8
-                </span>
+              {/* Desktop Left Nav */}
+              <nav className="hidden lg:flex items-center gap-6">
+                {leftNavItems.map((item) => (
+                  item.label === 'Shop' ? (
+                    <div key={item.label} className="relative">
+                      <button
+                        onMouseEnter={() => setIsShopMenuOpen(true)}
+                        onMouseLeave={() => setIsShopMenuOpen(false)}
+                        className="flex items-center font-bold  gap-1 text-[#50000b] hover:opacity-70 transition-opacity py-2"
+                      >
+                        <span>{item.label}</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="w-3 h-3">
+                          <path d="M9 4.3125L5.625 7.6875L2.25 4.3125" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="font-bold text-[#50000b] hover:opacity-70 transition-opacity"
+                    >
+                      {item.label}
+                    </a>
+                  )
+                ))}
+              </nav>
+            </div>
+
+            {/* Center Logo */}
+            <div className="flex justify-center">
+              <a href="/" className="inline-block">
+                <img
+                  src="https://im8health.com/cdn/shop/files/Header-Logo-New.svg?v=1729066833&width=95"
+                  alt="IM8 Health"
+                  className="h-7 w-auto"
+                  width="95"
+                  height="24"
+                />
               </a>
             </div>
 
-            {/* Right Navigation - Desktop */}
-            <div className="hidden lg:flex items-center gap-6">
-              {rightNavItems.map((item) => (
-                <button
-                  key={item.label}
-                  className="flex items-center gap-1 text-[14px] font-normal hover:opacity-85 transition-opacity"
-                  style={{ 
-                    color: 'rgb(80, 0, 11)',
-                    letterSpacing: '0',
-                  }}
-                >
-                  {item.label}
-                  {item.hasDropdown && <ChevronDown className="w-4 h-4" />}
-                </button>
-              ))}
-              <button 
-                className="p-2 hover:opacity-85 transition-opacity" 
-                aria-label="Account"
-                style={{ color: 'rgb(80, 0, 11)' }}
-              >
-                <User className="w-5 h-5" />
-              </button>
-              <button 
-                className="p-2 hover:opacity-85 transition-opacity" 
-                aria-label="Search"
-                style={{ color: 'rgb(80, 0, 11)' }}
-              >
-                <Search className="w-5 h-5" />
-              </button>
-            </div>
+            {/* Right Section */}
+            <div className="flex items-center justify-end gap-4">
+              {/* Desktop Right Nav */}
+              <nav className="hidden lg:flex items-center gap-6">
+                {rightNavItems.map((item) => (
+                  item.label === 'Discover' ? (
+                    <div key={item.label} className="relative">
+                      <button
+                        onMouseEnter={() => setIsDiscoverMenuOpen(true)}
+                        onMouseLeave={() => setIsDiscoverMenuOpen(false)}
+                        className="flex items-center gap-1 font-bold text-[#50000b] hover:opacity-70 transition-opacity py-2"
+                      >
+                        <span>{item.label}</span>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="w-3 h-3">
+                          <path d="M9 4.3125L5.625 7.6875L2.25 4.3125" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
+                        </svg>
+                      </button>
+                    </div>
+                  ) : (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="font-bold text-[#50000b] hover:opacity-70 transition-opacity"
+                    >
+                      {item.label}
+                    </a>
+                  )
+                ))}
+              </nav>
 
-            {/* Mobile Right Icons */}
-            <div className="flex lg:hidden items-center gap-2">
-              <button 
-                className="p-2" 
-                aria-label="Search"
-                style={{ color: 'rgb(80, 0, 11)' }}
-              >
-                <Search className="w-5 h-5" />
-              </button>
-              <button 
-                className="p-2" 
-                aria-label="Account"
-                style={{ color: 'rgb(80, 0, 11)' }}
-              >
-                <User className="w-5 h-5" />
-              </button>
+
+
+
+              {/* Account Icon */}
+              <a href="/account/login" className="p-1 hover:opacity-70">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M3 30C3 22.82 8.82 17 16 17C23.18 17 29 22.82 29 30" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
+                  <path d="M16 17C20.1421 17 23.5 13.6421 23.5 9.5C23.5 5.35786 20.1421 2 16 2C11.8579 2 8.5 5.35786 8.5 9.5C8.5 13.6421 11.8579 17 16 17Z" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
+                </svg>
+              </a>
+
+              {/* Cart Icon */}
+              <a href="/cart" className="relative p-1 hover:opacity-70">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M5.45011 5.45011L16 1.08232L26.5499 5.45011L30.9177 16L26.5499 26.5499L16 30.9177L5.45011 26.5499L1.08232 16L5.45011 5.45011Z" stroke="#50000B" strokeWidth="2" />
+                </svg>
+                <span className="absolute -top-1 -right-1 bg-[#A40011] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                  0
+                </span>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white"
-              style={{
-                borderTop: '1px solid rgba(80, 0, 11, 0.1)',
-              }}
-            >
-              <nav className="max-w-[150rem] mx-auto px-4 sm:px-6 py-4 space-y-1">
-                {[...navItems, ...rightNavItems].map((item) => (
-                  <button
+        {/* Mobile Drawer */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto">
+            <div className="p-6">
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="mb-6"
+              >
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <path d="M25.428 6.57227L6.57178 25.4284M25.428 25.4284L6.57184 6.57227" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
+                </svg>
+              </button>
+
+              <nav className="space-y-4">
+                {[...leftNavItems, ...rightNavItems].map((item) => (
+                  <a
                     key={item.label}
-                    className="flex items-center justify-between w-full py-3 text-base font-normal hover:opacity-85 transition-opacity"
-                    style={{ color: 'rgb(80, 0, 11)' }}
+                    href={item.href}
+                    className="block text-base text-[#50000b] py-2"
                   >
                     {item.label}
-                    {item.hasDropdown && <ChevronDown className="w-5 h-5" />}
-                  </button>
+                  </a>
                 ))}
               </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
       </header>
     </>
   );
