@@ -30,7 +30,7 @@ const MonthlyBreakdown = () => {
               Saving You Money.
             </h1>
             <div className="z-10">
-              <Button 
+              <Button
                 className="uppercase h-fit w-auto md:w-[45%] lg:w-[38%] xl:w-[32%] rounded-full bg-main-red hover:bg-main-dark-red duration-300 transition min-w-[200px] md:min-w-[220px] lg:min-w-68 font-bold pt-3.25 pb-2.75 px-5 md:px-6 lg:px-6.25 text-sm md:text-base cursor-pointer"
                 suppressHydrationWarning
               >
@@ -87,79 +87,56 @@ const MonthlyBreakdown = () => {
             </div>
           </div>
         </div>
-        <div className="md:hidden px-4 sm:px-5 py-12 sm:py-14 relative w-full">
-          <div className="absolute inset-0 flex items-start justify-center pt-10 overflow-hidden">
-            <img
-              src={pillBgSm}
-              alt="background"
-              className="object-contain w-full h-auto max-w-2xl opacity-25"
-              loading="lazy"
-            />
+        
+        <div className="md:hidden px-4 py-12 relative w-full">
+          <div className="absolute inset-0 flex items-start justify-center pt-10 overflow-hidden pointer-events-none">
+            <img src={pillBgSm} alt="background" className="object-contain w-full h-auto opacity-20" />
           </div>
 
-          <div className="relative z-10 flex flex-col overflow-hidden">
-            <h1 className="text-center text-[28px] sm:text-[32px] max-w-70 font-arizona leading-tight sm:leading-8 mx-auto text-[#50000B]">
-              Replaces
-              <br />
-              16 Supplements,
-              <br />
-              Saving You Money.
+          <div className="relative z-10 flex flex-col">
+            <h1 className="text-center text-[28px] font-arizona leading-tight text-[#50000B] mb-8">
+              Replaces 16 <br /> Supplements, <br /> Saving You Money.
             </h1>
 
-            <div className="relative mt-20 sm:mt-23.5">
-              <div className="absolute left-1/2 -translate-x-1/2 -top-20 sm:-top-23 w-24 sm:w-26.75 z-20">
-                <div className="relative">
-                  <img src={productImg} alt="product" className="w-full h-auto" />
-                  <div className="absolute bottom-2 -left-2 -translate-x-[calc(100%-1rem)] p-2.5 sm:p-3 flex items-center justify-center flex-col gap-1.5 sm:gap-2 text-center shadow-2xl rounded-full bg-[#50000B] text-white w-40 h-40 sm:w-46.5 sm:h-46.5">
-                    <p className="uppercase text-[10px] sm:text-[11px] font-bold tracking-wide px-1">
-                      ANNUAL SAVINGS
-                    </p>
-                    <div className="font-arizona leading-tight">
-                      <p className="text-lg sm:text-xl">$2,532 - $3,000</p>
-                      <p className="text-xs sm:text-sm mt-0.5">per year</p>
-                    </div>
-                    <p className="text-[10px] sm:text-[11px] mt-0.5 px-1">
-                      when switching to IM8
-                    </p>
-                  </div>
+            <div className="relative flex justify-center mb-10">
+              <div className="absolute -left-4 top-0 z-30 flex flex-col items-center justify-center text-center rounded-full bg-[#50000B] text-white w-32 h-32 sm:w-40 sm:h-40 shadow-xl border-2 border-white/10">
+                <p className="uppercase text-[8px] sm:text-[10px] font-bold tracking-tighter">ANNUAL SAVINGS</p>
+                <div className="font-arizona leading-tight">
+                  <p className="text-[14px] sm:text-[18px] font-normal">$2,532 - $3,000</p>
+                  <p className="text-[10px] mt-0.5">per year</p>
                 </div>
+                <p className="text-[8px] sm:text-[9px] mt-1 opacity-80 leading-none">when switching to IM8</p>
               </div>
 
-              <div className="flex flex-col gap-3 sm:gap-3.75 border border-main-dark-red rounded-xl w-full text-sm px-4 sm:px-6 pb-6 sm:pb-7 pt-22 sm:pt-25 bg-[#f5eaea]">
-                {ingredients.map((item) => (
-                  <div
-                    key={item.item}
-                    className="flex items-center justify-between"
-                  >
-                    <div className="flex items-center gap-2">
-                      <img src={checkIcon} alt="check icon" className="w-auto h-auto" />
-                      <p>{item.item}</p>
-                    </div>
-                    <s className="font-nb opacity-60">€{item.cost}</s>
+              <img src={productImg} alt="product" className="w-40 sm:w-52 h-auto relative z-20 drop-shadow-2xl" />
+            </div>
+
+            <div className="flex flex-col gap-3 border border-red-900/20 rounded-2xl w-full px-5 py-6 bg-[#f5eaea]/80 backdrop-blur-sm shadow-sm">
+              {ingredients.map((item) => (
+                <div key={item.item} className="flex items-center justify-between border-b border-[#50000B]/5 pb-2 last:border-0 last:pb-0">
+                  <div className="flex items-center gap-3">
+                    <img src={checkIcon} alt="check" className="w-4 h-4" />
+                    <p className="text-[13px] text-[#50000B] font-medium">{item.item}</p>
                   </div>
-                ))}
+                  <s className="font-nb opacity-50 text-[13px]">€{item.cost}</s>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 border-2 border-[#50000B] rounded-2xl overflow-hidden shadow-md">
+              <div className="py-3.5 px-5 bg-[#f5eaea] flex items-center justify-between border-b-2 border-[#50000B]">
+                <p className="text-[13px] text-[#50000B]">Your Traditional Supplements</p>
+                <s className="font-nb opacity-60 text-[13px]">€357</s>
+              </div>
+              <div className="py-4 px-5 flex items-center justify-between bg-white">
+                <p className="font-bold text-[14px] text-[#50000B]">IM8 Daily Ultimate Essentials</p>
+                <p className="font-nb font-bold text-[15px] text-[#50000B]">€185</p>
               </div>
             </div>
 
-            <div className="border-[1.5px] sm:border-[2px] border-[#50000B] rounded-xl sm:rounded-2xl w-full text-sm mt-4 overflow-hidden">
-              <div className="py-3 sm:py-3.5 px-4 sm:px-6 bg-[#f5eaea] flex items-center justify-between border-b-[1.5px] sm:border-b-[2px] border-[#50000B]">
-                <p className="text-[#50000B]">Your Traditional Supplements</p>
-                <s className="font-nb opacity-60">€357</s>
-              </div>
-              <div className="py-3 sm:py-3.5 px-4 sm:px-6 flex items-center justify-between bg-white">
-                <p className="font-bold text-[#50000B]">IM8 Daily Ultimate Essentials</p>
-                <p className="font-nb text-[#50000B]">€185</p>
-              </div>
-            </div>
-
-            <div className="w-full pt-4 sm:pt-5">
-              <Button 
-                className="uppercase w-full h-fit rounded-full bg-main-red hover:bg-main-dark-red duration-300 transition font-bold pt-3.25 pb-2.75 px-5 sm:px-6.25 text-sm sm:text-base cursor-pointer"
-                suppressHydrationWarning
-              >
-                Shop Now
-              </Button>
-            </div>
+            <Button className="mt-6 uppercase w-full py-6 rounded-full bg-[#9b1b1f] hover:bg-[#50000B] text-white font-bold text-base shadow-lg transition-all active:scale-95">
+              Shop Now
+            </Button>
           </div>
         </div>
       </Container>

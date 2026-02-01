@@ -26,8 +26,9 @@ const EmailJoinSm = () => {
           <Input
             placeholder="EMAIL ADDRESS"
             className="uppercase font-nb rounded-full bg-white text-main-dark-red border border-main-dark-red placeholder:text-main-dark-red pr-3.75 pl-7.5 focus-visible:ring-0 outline-0 leading-5 min-h-12"
+            suppressHydrationWarning
           />
-          <Button className="uppercase text-white bg-main-red hover:bg-main-red rounded-full p-3.25 leading-5.5 font-bold h-fit">
+          <Button className="uppercase text-white bg-main-red hover:bg-main-red rounded-full p-3.25 leading-5.5 font-bold h-fit" suppressHydrationWarning>
             <div>Join Now</div>
           </Button>
         </div>

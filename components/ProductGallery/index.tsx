@@ -171,6 +171,7 @@ export const ProductGallery = () => {
                 ? 'border-primary'
                 : 'border-transparent'
             }`}
+            suppressHydrationWarning
           >
             <img
               src={img.url}
