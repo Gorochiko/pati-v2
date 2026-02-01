@@ -14,19 +14,9 @@ import GreenCheck from "../../public/icons/green-check";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-/**
- * GoldStandard Section Component
- * Displays comparison between IM8 Daily Ultimate and leading greens powder
- */
 const GoldStandard = () => {
   const [isMore, setIsMore] = useState(false);
-  
-  const redData = isMore
-    ? [...dailyStandards]
-    : [...dailyStandards.slice(0, 10)];
-  const greenData = isMore
-    ? [...leadingStandards]
-    : [...leadingStandards.slice(0, 10)];
+  const rowCount = isMore ? dailyStandards.length : 10;
 
   return (
     <section className="bg-[#eae0d2]" aria-labelledby="standard-heading">
@@ -35,117 +25,83 @@ const GoldStandard = () => {
           <h2 id="standard-heading" className="font-arizona md:text-[52px] text-[40px] mb-10 text-center text-[#50000B]">
             IM8: The New Gold Standard
           </h2>
-          
-          {/* Comparison Table */}
-          <div className="w-full rounded-xl grid grid-cols-2 md:mt-14 mt-20 border border-main-dark-red overflow-visible" role="table" aria-label="Product comparison">
-            {/* IM8 Daily Ultimate Column */}
-            <div className="rounded-l-xl overflow-visible" role="columnheader">
-              <div className="bg-main-dark-red p-4 pt-2.5 rounded-tl-xl md:h-14 h-20.5 relative overflow-visible">
-                <div className="md:pl-10 pt-1 text-white font-bold max-md:text-sm">
+
+          <div className="w-full md:max-w-[850px] mx-auto rounded-xl border border-main-dark-red overflow-visible md:mt-14 mt-20 relative" role="table">
+            
+            {/* Table Header Row */}
+            <div className="grid grid-cols-2 relative z-10">
+              <div className="bg-main-dark-red p-4 pt-2.5 md:h-14 h-24 relative flex items-center border-r border-white/10 rounded-tl-[10px]">
+                <div className="md:pl-8 text-white font-bold text-sm md:text-base leading-tight">
                   Daily Ultimate Essentials
                 </div>
-                <div className="absolute -top-20 right-2 md:right-4 h-28 w-24 z-20">
-                  <img
-                    src={dailyProduct}
-                    alt="Daily Ultimate Essentials product"
-                    className="w-full h-full object-contain"
-                  />
+                <div className="absolute -top-16 right-1 md:right-2 h-24 w-20 md:h-32 md:w-28 z-30">
+                  <img src={dailyProduct} alt="IM8" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
               </div>
-              {redData.map((item, index) => (
-                <div 
-                  key={`daily-${index}`}
-                  className={cn(
-                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 bg-[#f5eaea] border-b border-r border-main-dark-red",
-                    isMore && index === redData.length - 1 && "rounded-bl-xl border-b-0"
-                  )}
-                  role="cell"
-                >
-                  <div aria-hidden="true">
-                    {item.isTrue ? (
-                      <RedCheck className="max-md:size-4" />
-                    ) : (
-                      <GreyX className="max-md:size-4" />
-                    )}
-                  </div>
-                  <div>
-                    <p className="font-bold max-md:text-[13px] text-[#50000B]">{item.item}</p>
-                    {item.description && (
-                      <p className="text-xs max-md:text-[11px] text-[#50000B]">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Leading Greens Powder Column */}
-            <div className="rounded-r-xl overflow-visible" role="columnheader">
-              <div className="bg-main-dark-red p-4 pt-2.5 rounded-tr-xl md:h-14 h-20.5 relative overflow-visible">
-                <div className="md:pl-10 pt-1 text-white font-bold max-md:text-sm">
+              
+              <div className="bg-main-dark-red p-4 pt-2.5 md:h-14 h-24 relative flex items-center rounded-tr-[10px]">
+                <div className="md:pl-8 text-white font-bold text-sm md:text-base leading-tight">
                   Leading Greens Powder
                 </div>
-                <div className="absolute -top-20 right-2 md:right-4 h-28 w-24 z-20">
-                  <img
-                    src={leadingProduct}
-                    alt="Leading greens powder product"
-                    className="w-full h-full object-contain"
-                  />
+                <div className="absolute -top-16 right-1 md:right-2 h-24 w-20 md:h-32 md:w-28 z-30">
+                  <img src={leadingProduct} alt="Leading" className="w-full h-full object-contain drop-shadow-2xl" />
                 </div>
               </div>
-              {greenData.map((item, index) => (
-                <div 
-                  key={`leading-${index}`}
-                  className={cn(
-                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 text-[#2d3b32] bg-[#b6c0b1] border-b border-l border-main-dark-red",
-                    isMore && index === greenData.length - 1 && "rounded-br-xl border-b-0"
-                  )}
-                  role="cell"
-                >
-                  <div aria-hidden="true">
-                    {item.isTrue ? (
-                      <GreenCheck className="max-md:size-4" />
-                    ) : (
-                      <GreenX className="max-md:size-4" />
-                    )}
-                  </div>
-                  <div>
-                    <p className="font-bold max-md:text-[13px]">{item.item}</p>
-                    {item.description && (
-                      <p className="text-xs max-md:text-[11px]">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
             </div>
-            
-            {/* See More Button */}
+
+            {/* Table Body */}
+            <div className="relative z-0">
+              {Array.from({ length: rowCount }).map((_, index) => {
+                const daily = dailyStandards[index];
+                const leading = leadingStandards[index];
+                const isLastRow = !isMore && index === rowCount - 1;
+
+                return (
+                  <div key={`row-${index}`} className="grid grid-cols-2 border-t border-main-dark-red min-h-[70px] md:min-h-0">
+                    <div className={cn(
+                      "flex items-center gap-2 md:gap-4 p-3 md:pl-8 md:h-14 bg-[#f5eaea] border-r border-main-dark-red",
+                      isLastRow && "rounded-bl-[10px]"
+                    )}>
+                      <div className="shrink-0">
+                        {daily.isTrue ? <RedCheck className="size-4 md:size-5" /> : <GreyX className="size-4 md:size-5" />}
+                      </div>
+                      <div>
+                        <p className="font-bold text-[12px] md:text-[13px] text-[#50000B]">{daily.item}</p>
+                        {daily.description && <p className="text-[10px] md:text-[11px] text-[#50000B] opacity-70 leading-none">{daily.description}</p>}
+                      </div>
+                    </div>
+
+                    <div className={cn(
+                      "flex items-center gap-2 md:gap-4 p-3 md:pl-8 md:h-14 bg-[#b6c0b1] text-[#2d3b32]",
+                      isLastRow && "rounded-br-[10px]"
+                    )}>
+                      <div className="shrink-0">
+                        {leading.isTrue ? <GreenCheck className="size-4 md:size-5" /> : <GreenX className="size-4 md:size-5" />}
+                      </div>
+                      <div>
+                        <p className="font-bold text-[12px] md:text-[13px]">{leading.item}</p>
+                        {leading.description && <p className="text-[10px] md:text-[11px] opacity-70 leading-none">{leading.description}</p>}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* See More Row */}
             {!isMore && (
               <div
-                className="col-span-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 border-t border-main-dark-red rounded-b-xl bg-[#f5eaea] flex items-center justify-center cursor-pointer hover:bg-[#efe5e5] transition-colors"
+                className="w-full border-t border-main-dark-red bg-[#f5eaea] flex items-center justify-center p-4 cursor-pointer hover:bg-[#efe5e5] transition-colors rounded-b-[10px] relative z-10"
                 onClick={() => setIsMore(true)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setIsMore(true);
-                  }
-                }}
-                suppressHydrationWarning
               >
-                <span className="font-bold text-[#50000B]">See more</span>
+                <span className="font-bold text-[#50000B] text-sm">See more</span>
               </div>
             )}
           </div>
         </div>
-        
-        {/* CTA Button */}
-        <div className="flex justify-center  mt-10">
-          <Button className="uppercase bg-main-red hover:bg-main-dark-red rounded-full transition duration-300 font-bold pt-5 pb-5 px-8 text-base min-w-68" suppressHydrationWarning>
+
+        <div className="flex justify-center mt-12">
+          <Button className="uppercase bg-main-red hover:bg-main-dark-red rounded-full font-bold py-6 px-10 text-base" suppressHydrationWarning>
             View Supplement Facts
           </Button>
         </div>
