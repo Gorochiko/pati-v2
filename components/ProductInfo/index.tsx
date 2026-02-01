@@ -50,14 +50,14 @@ export const ProductInfo = () => {
             ))}
           </span>
           <span className="font-bold text-[15px] lg:text-[15px] text-[#3d0008] tracking-[-0.02em]">4.8</span>
-          <span className="text-[14px] lg:text-[14px] text-[#50000b] font-semibold">from 11,825 Reviews</span>
+          <span className="text-[14px] font-aeonik lg:text-[14px] text-[#50000b] font-semibold">from 11,825 Reviews</span>
         </div>
 
         <div className="inline-flex items-center gap-[4px] lg:gap-[6px] flex-wrap text-[13px] lg:text-[14px]">
           <span className="text-[#d4c4b8] mx-[2px] font-light hidden lg:inline">|</span>
-          <span className="text-[#6b4c3a] font-medium">622k+ customer purchases</span>
+          <span className="text-[#6b4c3a]  font-aeonik font-medium">622k+ customer purchases</span>
           <span className="text-[#d4c4b8] font-light inline">|</span>
-          <span className="text-[#6b4c3a] font-medium">19M+ servings</span>
+          <span className="text-[#6b4c3a] font-aeonik font-medium">19M+ servings</span>
         </div>
       </div>
 

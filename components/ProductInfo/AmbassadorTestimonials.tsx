@@ -89,7 +89,7 @@ export const AmbassadorTestimonials = () => {
     <div className="my-6 overflow-hidden">
       {/* Title */}
       <h3 
-        className="text-[20px] font-medium text-[#50000b] leading-[120%] tracking-[-0.4px] mb-4 text-center"
+        className="text-[20px] font-medium text-[#50000b] leading-[120%] tracking-[-0.4px] mb-4 "
         style={{ fontFamily: 'ABC Arizona Flare, serif' }}
       >
         What our IM8 Ambassadors are saying

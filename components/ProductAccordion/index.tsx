@@ -82,7 +82,7 @@ export const ProductAccordion = () => {
                          flex items-center justify-between group"
             >
               <h4 
-                className="text-[18px] font-medium text-[#50000b] m-0 pr-8"
+                className="text-[18px] font-semibold text-[#50000b] m-0 pr-8"
                 style={{ fontFamily: 'Aeonik, sans-serif' }}
               >
                 {item.title}

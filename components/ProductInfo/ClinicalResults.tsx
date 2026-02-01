@@ -28,7 +28,7 @@ export const ClinicalResults = () => {
           Clinically Proven Results
         </h3>
         <span 
-          className="inline-flex items-center justify-center h-[25.891px] px-[15.178px] py-[4.464px_15.178px_3.427px] bg-[#16A34A] rounded-[17.856px] text-white text-[11px] font-bold uppercase tracking-[0.5px] whitespace-nowrap flex-shrink-0"
+          className="inline-flex items-center font-aeonik justify-center h-[25.891px] px-[15.178px] py-[4.464px_15.178px_3.427px] bg-[#16A34A] rounded-[17.856px] text-white text-[11px] font-bold uppercase tracking-[0.5px] whitespace-nowrap flex-shrink-0"
         >
           90-DAY CLINICAL STUDY
         </span>
@@ -47,7 +47,7 @@ export const ClinicalResults = () => {
                 {stat.value}
               </span>
             </div>
-            <span className="text-[13px] font-medium text-[#50000b] leading-[1.3]">
+            <span className="text-[13px] font-medium font-aeonik text-[#50000b] leading-[1.3]">
               {stat.label}
             </span>
           </div>
@@ -55,7 +55,7 @@ export const ClinicalResults = () => {
       </div>
 
       {/* Disclaimer */}
-      <p className="text-[11px] text-[#666] mb-4 italic">
+      <p className="text-[11px] font-aeonik text-[#666] mb-4 italic">
         *Based on 12-week randomized controlled trial by San Francisco Research Institute
       </p>
 
@@ -65,7 +65,7 @@ export const ClinicalResults = () => {
         <div className="flex-1">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="bg-transparent border-none p-0 cursor-pointer text-[14px] font-semibold text-[#50000b] underline decoration-1 underline-offset-[3px] flex items-center gap-[6px] transition-opacity duration-200 hover:opacity-70"
+            className="bg-transparent font-aeonik border-none p-0 cursor-pointer text-[14px] font-semibold text-[#50000b] underline decoration-1 underline-offset-[3px] flex items-center gap-[6px] transition-opacity duration-200 hover:opacity-70"
             style={{ fontFamily: '"ABC Arizona Flare", serif' }}
             aria-expanded={isExpanded}
             suppressHydrationWarning

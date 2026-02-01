@@ -107,27 +107,27 @@ export const SubscriptionSelector = () => {
                 
                 {/* Top Row */}
                 <div className="flex justify-between items-baseline mb-1">
-                  <span className="font-body text-[15px] font-medium text-[#50000b]">
+                  <span className="font-body text-[20px] font-arizona font-medium text-[#50000b]">
                     {plan.name}{' '}
                     <span className={plan.discountColor}>{plan.discount}</span>
                   </span>
                   
                   <span className="text-[#50000b]">
-                    <span className="font-body text-[16px] font-medium">{plan.price}</span>
-                    <span className="text-[13px] opacity-75">{plan.period}</span>
+                    <span className="font-body text-[20px] font-aeonik font-medium">{plan.price}</span>
+                    <span className="text-[13px] opacity-75 font-aeonik">{plan.period}</span>
                   </span>
                 </div>
                 
                 {/* Bottom Row */}
                 <div className="flex justify-between items-center text-[13px] text-[#50000b] mb-3">
-                  <span className="opacity-75">{plan.billing}</span>
-                  <span className="font-medium whitespace-nowrap">{plan.pricePerServing}</span>
+                  <span className="opacity-75 font-aeonik">{plan.billing}</span>
+                  <span className="font-medium font-architekt whitespace-nowrap">{plan.pricePerServing}</span>
                 </div>
                 
                 {/* Features List */}
                 <ul className="list-none p-0 m-0">
                   {plan.features.map((feature, idx) => (
-                    <li key={idx} className="font-body text-[13px] text-[#50000b] leading-[1.6] mb-1">
+                    <li key={idx} className="font-body font-aeonik text-[13px] text-[#50000b] leading-[1.6] mb-1">
                       {feature}
                     </li>
                   ))}
@@ -141,7 +141,7 @@ export const SubscriptionSelector = () => {
         <div className="text-center m-0 p-0">
           <a 
             href="#" 
-            className="inline-block font-body text-[14px] font-medium text-[#50000b] underline underline-offset-[3px] transition-opacity hover:opacity-80"
+            className="inline-block font-aeonik text-[14px] font-medium text-[#50000b] underline underline-offset-[3px] transition-opacity hover:opacity-80"
             onClick={(e) => e.preventDefault()}
           >
             One Time Purchase <span className="font-medium">€130</span>
