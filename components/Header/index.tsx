@@ -96,7 +96,7 @@ export const Header = () => {
                       <button
                         onMouseEnter={() => setIsShopMenuOpen(true)}
                         onMouseLeave={() => setIsShopMenuOpen(false)}
-                        className="flex items-center font-bold  gap-1 text-[#50000b] hover:opacity-70 transition-opacity py-2"
+                        className="flex items-center font-bold  gap-1 text-[#50000b] hover:opacity-70 transition-opacity py-2 whitespace-nowrap"
                         suppressHydrationWarning
                       >
                         <span>{item.label}</span>
@@ -109,7 +109,7 @@ export const Header = () => {
                     <a
                       key={item.label}
                       href={item.href}
-                      className="font-bold text-[#50000b] hover:opacity-70 transition-opacity"
+                      className="font-bold text-[#50000b] hover:opacity-70 transition-opacity whitespace-nowrap"
                     >
                       {item.label}
                     </a>
