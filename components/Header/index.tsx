@@ -36,10 +36,10 @@ export const Header = () => {
         }}
       >
         {/* Announcement Text */}
-        <div className="max-w-[150rem] mx-auto px-6">
-          <div className="py-2.5 text-center">
+        <div className="max-w-[150rem] mx-auto px-3 md:px-6">
+          <div className="py-2 md:py-2.5 text-center">
             <div
-              className="uppercase text-sm font-bold tracking-wide leading-tight"
+              className="uppercase text-xs md:text-sm font-bold tracking-wide leading-tight"
               style={{ fontFamily: 'NB Architekt, sans-serif' }}
             >
               <strong>2026 STARTS NOW:</strong>{' '}
@@ -50,7 +50,7 @@ export const Header = () => {
         </div>
 
         {/* Currency Selector - Desktop */}
-        <div className="absolute right-6 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+        <div className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
           <button
             className="flex items-center gap-1 text-white text-xs font-bold uppercase tracking-wide"
             style={{ fontFamily: 'NB Architekt, sans-serif' }}
@@ -70,18 +70,18 @@ export const Header = () => {
           }`}
         style={{ fontFamily: 'Aeonik, sans-serif' }}
       >
-        <div className="max-w-[150rem] mx-auto px-8 lg:px-[200px] h-16">
-          <div className="grid grid-cols-[1fr_2fr_1fr] lg:grid-cols-3 items-center h-full">
+        <div className="max-w-[150rem] mx-auto px-4 md:px-8 lg:px-[200px] h-14 md:h-16">
+          <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-3 items-center h-full gap-2 md:gap-4">
 
             {/* Left Section */}
             <div className="flex items-center justify-start">
               {/* Mobile Hamburger */}
               <button
-                className="lg:hidden p-2 -ml-2 hover:opacity-70"
+                className="lg:hidden p-1.5 md:p-2 -ml-2 hover:opacity-70"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 suppressHydrationWarning
               >
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="w-6 h-6 md:w-7 md:h-7">
                   <path d="M2 16H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
                   <path d="M2 7H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
                   <path d="M2 25H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
@@ -89,7 +89,7 @@ export const Header = () => {
               </button>
 
               {/* Desktop Left Nav */}
-              <nav className="hidden lg:flex items-center gap-6">
+              <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
                 {leftNavItems.map((item) => (
                   item.label === 'Shop' ? (
                     <div key={item.label} className="relative">
@@ -124,7 +124,7 @@ export const Header = () => {
                 <img
                   src="https://im8health.com/cdn/shop/files/Header-Logo-New.svg?v=1729066833&width=95"
                   alt="IM8 Health"
-                  className="h-7 w-auto"
+                  className="h-5 md:h-6 lg:h-7 w-auto"
                   width="95"
                   height="24"
                 />
@@ -132,9 +132,9 @@ export const Header = () => {
             </div>
 
             {/* Right Section */}
-            <div className="flex items-center justify-end gap-4">
+            <div className="flex items-center justify-end gap-2 md:gap-3 lg:gap-4">
               {/* Desktop Right Nav */}
-              <nav className="hidden lg:flex items-center gap-6">
+              <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
                 {rightNavItems.map((item) => (
                   item.label === 'Discover' ? (
                     <div key={item.label} className="relative">
@@ -166,19 +166,19 @@ export const Header = () => {
 
 
               {/* Account Icon */}
-              <a href="/account/login" className="p-1 hover:opacity-70">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <a href="/account/login" className="p-0.5 md:p-1 hover:opacity-70">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8">
                   <path d="M3 30C3 22.82 8.82 17 16 17C23.18 17 29 22.82 29 30" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
                   <path d="M16 17C20.1421 17 23.5 13.6421 23.5 9.5C23.5 5.35786 20.1421 2 16 2C11.8579 2 8.5 5.35786 8.5 9.5C8.5 13.6421 11.8579 17 16 17Z" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
                 </svg>
               </a>
 
               {/* Cart Icon */}
-              <a href="/cart" className="relative p-1 hover:opacity-70">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <a href="/cart" className="relative p-0.5 md:p-1 hover:opacity-70">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8">
                   <path d="M5.45011 5.45011L16 1.08232L26.5499 5.45011L30.9177 16L26.5499 26.5499L16 30.9177L5.45011 26.5499L1.08232 16L5.45011 5.45011Z" stroke="#50000B" strokeWidth="2" />
                 </svg>
-                <span className="absolute -top-1 -right-1 bg-[#A40011] text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">
+                <span className="absolute -top-0.5 -right-0.5 md:-top-1 md:-right-1 bg-[#A40011] text-white text-[10px] md:text-xs w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center font-bold">
                   0
                 </span>
               </a>
@@ -189,28 +189,50 @@ export const Header = () => {
         {/* Mobile Drawer */}
         {isMobileMenuOpen && (
           <div className="lg:hidden fixed inset-0 bg-white z-50 overflow-y-auto">
-            <div className="p-6">
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="mb-6"
-                suppressHydrationWarning
-              >
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                  <path d="M25.428 6.57227L6.57178 25.4284M25.428 25.4284L6.57184 6.57227" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
-                </svg>
-              </button>
+            <div className="p-4 md:p-6">
+              <div className="flex items-center justify-between mb-6">
+                <img
+                  src="https://im8health.com/cdn/shop/files/Header-Logo-New.svg?v=1729066833&width=95"
+                  alt="IM8 Health"
+                  className="h-6 w-auto"
+                />
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2"
+                  suppressHydrationWarning
+                >
+                  <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                    <path d="M25.428 6.57227L6.57178 25.4284M25.428 25.4284L6.57184 6.57227" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
+                  </svg>
+                </button>
+              </div>
 
-              <nav className="space-y-4">
+              <nav className="space-y-1">
                 {[...leftNavItems, ...rightNavItems].map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
-                    className="block text-base text-[#50000b] py-2"
+                    className="block text-base md:text-lg font-semibold text-[#50000b] py-3 px-2 hover:bg-gray-50 rounded-lg transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.label}
                   </a>
                 ))}
               </nav>
+
+              {/* Mobile Currency Selector */}
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <button
+                  className="flex items-center gap-2 text-[#50000b] text-sm font-bold uppercase tracking-wide px-2"
+                  style={{ fontFamily: 'NB Architekt, sans-serif' }}
+                  suppressHydrationWarning
+                >
+                  <span>EUR</span>
+                  <svg width="12" height="13" viewBox="0 0 12 13" fill="none" className="w-3 h-3">
+                    <path d="M9 4.8125L5.625 8.1875L2.25 4.8125" stroke="#50000B" strokeWidth="2" strokeLinecap="square" />
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         )}

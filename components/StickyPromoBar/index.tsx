@@ -6,7 +6,7 @@ export const StickyPromoBar = () => {
 
     return (
         <div
-            className={`fixed w-full z-[12] top-0 left-0 transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : '-translate-y-full'
+            className={`fixed w-full z-[10000] top-0 left-0 transition-transform duration-300 ease-out ${isVisible ? 'translate-y-0' : '-translate-y-full'
                 }`}
             style={{
                 background: '#50000b',
