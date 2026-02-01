@@ -1,7 +1,6 @@
 import * as React from "react";
 const RedX = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
-    className="Desktop_only_new"
     width={32}
     height={32}
     viewBox="0 0 32 32"
@@ -10,7 +9,7 @@ const RedX = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <g
-      clipPath="url(#a)"
+      clipPath="url(#red-x-clip)"
       stroke="#50000b"
       strokeWidth={2}
       strokeLinecap="square"
@@ -19,7 +18,7 @@ const RedX = (props: React.SVGProps<SVGSVGElement>) => (
       <path d="M25.428 6.572 6.572 25.428m18.856 0L6.572 6.572" />
     </g>
     <defs>
-      <clipPath id="a">
+      <clipPath id="red-x-clip">
         <path fill="#fff" d="M0 0h32v32H0z" />
       </clipPath>
     </defs>

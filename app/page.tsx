@@ -14,24 +14,10 @@ import Premium from '@/components/Premium';
 import BeckhamStack from '@/components/BeckhamStack';
 import TeamMember from '@/components/TeamMember';
 import Ambassadors from '@/components/ambassadors';
-// import OrganSystems from '@/components/OrganSystems';
-// import {ComparisonTable} from '../components/ComparisonTable';
-// import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
-// import { ClinicalStudyBanner } from '@/components/ClinicalStudyBanner';
-// import { StickyAddToCart } from '@/components/StickyAddToCart';
-// import { CustomerReviews } from '@/components/CustomerReviews';
-// import { BodySystemsSupport } from '@/components/BodySystemsSupport';
-// import { SupplementReplacement } from '@/components/SupplementReplacement';
-// import { ComparisonTable } from '@/components/ComparisonTable';
-// import { FivePillars } from '@/components/FivePillars';
-// import { TrustedExperts } from '@/components/TrustedExperts';
-// import { ScientificAdvisors } from '@/components/ScientificAdvisors';
-// import { InfluencerTestimonials } from '@/components/InfluencerTestimonials';
-// import { HowToEnjoy } from '@/components/HowToEnjoy';
-// import { WelcomeKit } from '@/components/WelcomeKit';
-// import { RelatedProducts } from '@/components/RelatedProducts';
-// import { FAQ } from '@/components/FAQ';
-// import { Footer } from '@/components/Footer';
+import DailyUltimate from '@/components/DailyUltimate';
+import GoldStandard from '@/components/GoldStandard';
+import MonthlyBreakdown from '@/components/Monthly';
+
 
 export default function Home() {
   return (
@@ -75,35 +61,16 @@ export default function Home() {
 
       {/* Organ Systems */}
       <OrganSystems />
-      {/* Body Systems Support */}
-      {/* <BodySystemsSupport /> */}
 
-      {/* Supplement Replacement */}
-      {/* <SupplementReplacement /> */}
+      <MonthlyBreakdown/>
 
-      {/* Comparison Table */}
-      {/* <ComparisonTable /> */}
-
+      <GoldStandard/>
+    
       {/* Five Pillars */}
       <FivePillars />
 
-      {/* Trusted Experts */}
-      {/* <TrustedExperts /> */}
-
-      {/* How to Enjoy */}
-      {/* <HowToEnjoy /> */}
-
-      {/* Welcome Kit */}
-      {/* <WelcomeKit /> */}
-
-      {/* Influencer Testimonials */}
-      {/* <InfluencerTestimonials /> */}
-
-      {/* Scientific Advisors */}
-      {/* <ScientificAdvisors /> */}
-
-      {/* Related Products */}
-      {/* <RelatedProducts /> */}
+      {/* Daily Ultimate Nutrition */}
+      <DailyUltimate />
 
       {/* Ambassador Section */}
       <Ambassadors />
@@ -123,8 +90,7 @@ export default function Home() {
       {/* Footer */}
       <Footer />
 
-      {/* Sticky Add to Cart - Mobile Only */}
-      {/* <StickyAddToCart /> */}
+
 
       {/* Bottom padding for sticky cart on mobile */}
       <div className="h-32 lg:hidden" />
