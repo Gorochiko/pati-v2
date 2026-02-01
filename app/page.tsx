@@ -8,6 +8,11 @@ import ClinicalStudiesSection from '@/components/ClinicalStudiesSection';
 import StaticReviewsSection from '@/components/StaticReviewsSection';
 import { FivePillars } from '@/components/FivePillars';
 import OrganSystems from '@/components/OrganSystems';
+import Footer from '@/components/Footer';
+import Faqs from '../components/FAQ';
+import Premium from '@/components/Premium';
+import BeckhamStack from '@/components/BeckhamStack';
+
 // import OrganSystems from '@/components/OrganSystems';
 // import {ComparisonTable} from '../components/ComparisonTable';
 // import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
@@ -99,11 +104,17 @@ export default function Home() {
       {/* Related Products */}
       {/* <RelatedProducts /> */}
 
+      {/* Beckham Stack */}
+      <BeckhamStack />
+
+      {/* Premium Section */}
+      <Premium />
+
       {/* FAQ */}
-      {/* <FAQ /> */}
+      <Faqs />
 
       {/* Footer */}
-      {/* <Footer /> */}
+      <Footer />
 
       {/* Sticky Add to Cart - Mobile Only */}
       {/* <StickyAddToCart /> */}

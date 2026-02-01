@@ -28,6 +28,7 @@ export const OrganCard: React.FC<OrganCardProps> = ({ system, isActive, onClick,
         backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]`}
       role="option"
       aria-selected={isActive}
+      suppressHydrationWarning
     >
       {/* Card Number */}
       <span className={`absolute top-2 left-3 font-['Aeonik'] text-[10px] font-medium opacity-60 transition-all duration-[280ms] ease-out

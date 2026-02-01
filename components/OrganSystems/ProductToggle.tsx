@@ -22,6 +22,7 @@ export const ProductToggle: React.FC<ProductToggleProps> = ({ activeProduct, onT
           role="tab"
           aria-selected={activeProduct === 'essentials'}
           tabIndex={activeProduct === 'essentials' ? 0 : -1}
+          suppressHydrationWarning
         >
           <span className="block overflow-visible">Daily Ultimate Essentials</span>
         </button>
@@ -35,6 +36,7 @@ export const ProductToggle: React.FC<ProductToggleProps> = ({ activeProduct, onT
           role="tab"
           aria-selected={activeProduct === 'longevity'}
           tabIndex={activeProduct === 'longevity' ? 0 : -1}
+          suppressHydrationWarning
         >
           <span className="block overflow-visible">Daily Ultimate Longevity</span>
         </button>

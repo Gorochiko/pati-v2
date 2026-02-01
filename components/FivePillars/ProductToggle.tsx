@@ -22,6 +22,7 @@ export const ProductToggle = () => {
           }}
           role="tab"
           aria-selected={isEssentials}
+          suppressHydrationWarning
         >
           Daily Ultimate Essentials
         </button>
@@ -37,6 +38,7 @@ export const ProductToggle = () => {
           }}
           role="tab"
           aria-selected={!isEssentials}
+          suppressHydrationWarning
         >
           Daily Ultimate Longevity
         </button>

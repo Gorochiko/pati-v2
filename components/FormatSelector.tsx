@@ -46,6 +46,7 @@ export const FormatSelector = () => {
                   ? 'ring-1 ring-[#50000b] bg-[#fdfaf8]' 
                   : 'border border-gray-200 bg-white hover:border-[#50000b]/40'}
               `}
+              suppressHydrationWarning
             >
               {/* Left Side: Giảm tỉ lệ từ 1/3 xuống 1/4 (25%) để dành chỗ cho text */}
               <div className="w-[28%] bg-gradient-to-b from-[#f5d9c5] to-[#f9be9a] flex items-center justify-center p-2">

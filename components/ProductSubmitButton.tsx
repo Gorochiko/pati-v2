@@ -22,6 +22,7 @@ export const ProductSubmitButton = ({ selectedPlan = '90day' }) => {
           hover:opacity-90 active:scale-[0.98]
           relative overflow-hidden
         `}
+        suppressHydrationWarning
       >
         {/* Button Text Section */}
         <span className="button-text">

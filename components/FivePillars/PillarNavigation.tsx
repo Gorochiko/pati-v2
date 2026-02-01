@@ -40,6 +40,7 @@ export const PillarNavigation = ({ pillars }: PillarNavigationProps) => {
           }}
           role="tab"
           aria-selected={currentActivePillarIndex === index}
+          suppressHydrationWarning
         >
           {/* Number badge */}
           <span 

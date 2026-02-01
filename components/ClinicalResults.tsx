@@ -68,6 +68,7 @@ export const ClinicalResults = () => {
             className="bg-transparent border-none p-0 cursor-pointer text-[14px] font-semibold text-[#50000b] underline decoration-1 underline-offset-[3px] flex items-center gap-[6px] transition-opacity duration-200 hover:opacity-70"
             style={{ fontFamily: '"ABC Arizona Flare", serif' }}
             aria-expanded={isExpanded}
+            suppressHydrationWarning
           >
             Why These Results Matter?
             <svg 

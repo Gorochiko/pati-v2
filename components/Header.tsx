@@ -54,6 +54,7 @@ export const Header = () => {
           <button
             className="flex items-center gap-1 text-white text-xs font-bold uppercase tracking-wide"
             style={{ fontFamily: 'NB Architekt, sans-serif' }}
+            suppressHydrationWarning
           >
             <span>EUR</span>
             <svg width="12" height="13" viewBox="0 0 12 13" fill="none" className="w-3 h-3">

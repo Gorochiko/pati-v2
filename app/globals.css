@@ -106,7 +106,14 @@
     --ring: 345 78% 32%;
 
     --radius: 0.75rem;
-
+    /* Định nghĩa giá trị thực tế */
+    --main-light-red: #ff9693;
+    --main-dark-red: oklch(0.2723 0.109753 22.2781);
+    --main-red: oklch(0.4522 0.184068 26.5694);
+    /* Khai báo biến màu cho Tailwind */
+    --color-main-red: var(--main-red);
+    /* Gán vào biến mà Tailwind sẽ sử dụng */
+    --color-main-light-red: var(--main-light-red);
     /* Custom IM8 variables */
     --im8-red: 345 78% 32%;
     --im8-red-dark: 345 85% 22%;
@@ -121,15 +128,18 @@
     --page-width: 150rem;
     --duration-announcement-bar: 250ms;
   }
-@layer utilities {
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+
+  @layer utilities {
+    .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
   }
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-}
+
   .dark {
     --background: 0 0% 5%;
     --foreground: 0 0% 95%;
@@ -179,13 +189,19 @@
     letter-spacing: 0;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     letter-spacing: -0.02em;
     font-weight: 700;
   }
 }
 
 @layer components {
+
   /* IM8 Container - Max width 1280px */
   .im8-container {
     @apply max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-12;
@@ -328,35 +344,76 @@
 }
 
 @layer utilities {
+
   /* Custom Animations */
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes slideInRight {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 
   @keyframes pulse-soft {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.8; }
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
+    }
   }
 
   @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    0% {
+      background-position: -200% 0;
+    }
+
+    100% {
+      background-position: 200% 0;
+    }
   }
 
   .animate-fade-in {
@@ -380,7 +437,7 @@
   }
 
   .animate-shimmer {
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
@@ -449,23 +506,47 @@
 
 /* Grid Animation Keyframes - PERFORMANCE OPTIMIZED */
 @keyframes gridScrollVertical {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(0, 80px, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 80px, 0);
+  }
 }
 
 @keyframes gridScrollHorizontal {
-  0% { transform: translate3d(0, 0, 0); }
-  100% { transform: translate3d(80px, 0, 0); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(80px, 0, 0);
+  }
 }
 
 @keyframes gridGlowPulse {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 0.8; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @keyframes orbPulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.65; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
 }
 
 @keyframes osContentFadeIn {
@@ -473,6 +554,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -484,6 +566,7 @@
     opacity: 0;
     transform: translateX(10px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -492,56 +575,47 @@
 
 /* Theme-specific backgrounds for Essentials */
 .organ-systems--essentials {
-  background: 
-    repeating-linear-gradient(
-      0deg,
+  background:
+    repeating-linear-gradient(0deg,
       transparent 0px,
       transparent 60px,
       rgba(164, 0, 17, 0.08) 60px,
-      rgba(164, 0, 17, 0.08) 61px
-    ),
-    repeating-linear-gradient(
-      90deg,
+      rgba(164, 0, 17, 0.08) 61px),
+    repeating-linear-gradient(90deg,
       transparent 0px,
       transparent 60px,
       rgba(164, 0, 17, 0.06) 60px,
-      rgba(164, 0, 17, 0.06) 61px
-    ),
-    linear-gradient(180deg, 
+      rgba(164, 0, 17, 0.06) 61px),
+    linear-gradient(180deg,
       #F5EAEA 0%,
       #FDF8F8 15%,
       #F9F1F1 40%,
       #F5EAEA 70%,
-      rgba(164, 0, 17, 0.08) 100%
-    );
+      rgba(164, 0, 17, 0.08) 100%);
 }
 
 /* Essentials - Red grid lines (3D perspective) */
 .organ-systems--essentials .organ-systems__grid-plane--horizontal {
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
+  background-image:
+    repeating-linear-gradient(0deg,
       transparent 0px,
       transparent 50px,
       rgba(164, 0, 17, 0.18) 50px,
-      rgba(164, 0, 17, 0.18) 51px
-    );
+      rgba(164, 0, 17, 0.18) 51px);
 }
 
 .organ-systems--essentials .organ-systems__grid-plane--vertical {
-  background-image: 
-    repeating-linear-gradient(
-      90deg,
+  background-image:
+    repeating-linear-gradient(90deg,
       transparent 0px,
       transparent 50px,
       rgba(164, 0, 17, 0.15) 50px,
-      rgba(164, 0, 17, 0.15) 51px
-    );
+      rgba(164, 0, 17, 0.15) 51px);
 }
 
 /* Essentials - Red distributed glow */
 .organ-systems--essentials .organ-systems__grid-glow {
-  background: 
+  background:
     radial-gradient(ellipse 120% 80% at 20% 30%, rgba(164, 0, 17, 0.25) 0%, rgba(164, 0, 17, 0.1) 40%, transparent 70%),
     radial-gradient(ellipse 120% 80% at 80% 70%, rgba(164, 0, 17, 0.25) 0%, rgba(164, 0, 17, 0.1) 40%, transparent 70%),
     radial-gradient(ellipse 100% 100% at 50% 50%, rgba(164, 0, 17, 0.15) 0%, rgba(164, 0, 17, 0.08) 50%, transparent 80%);
@@ -549,91 +623,76 @@
 
 /* Essentials - Pink-tinted overlay */
 .organ-systems--essentials .organ-systems__grid-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(245, 234, 234, 0.9) 0%,
-    rgba(245, 234, 234, 0.6) 15%,
-    rgba(245, 234, 234, 0.2) 35%,
-    transparent 55%,
-    rgba(245, 234, 234, 0.3) 75%,
-    rgba(245, 234, 234, 0.85) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(245, 234, 234, 0.9) 0%,
+      rgba(245, 234, 234, 0.6) 15%,
+      rgba(245, 234, 234, 0.2) 35%,
+      transparent 55%,
+      rgba(245, 234, 234, 0.3) 75%,
+      rgba(245, 234, 234, 0.85) 100%);
 }
 
 /* Essentials - Red primary orb */
 .organ-systems--essentials .organ-systems__glow-orb--red {
-  background: radial-gradient(
-    circle,
-    rgba(164, 0, 17, 0.5) 0%,
-    rgba(164, 0, 17, 0.25) 30%,
-    rgba(164, 0, 17, 0.08) 60%,
-    transparent 80%
-  );
+  background: radial-gradient(circle,
+      rgba(164, 0, 17, 0.5) 0%,
+      rgba(164, 0, 17, 0.25) 30%,
+      rgba(164, 0, 17, 0.08) 60%,
+      transparent 80%);
 }
 
 /* Essentials - Pink accent orb */
 .organ-systems--essentials .organ-systems__glow-orb--pink {
-  background: radial-gradient(
-    circle,
-    rgba(255, 150, 147, 0.5) 0%,
-    rgba(255, 150, 147, 0.2) 30%,
-    rgba(255, 150, 147, 0.05) 60%,
-    transparent 80%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 150, 147, 0.5) 0%,
+      rgba(255, 150, 147, 0.2) 30%,
+      rgba(255, 150, 147, 0.05) 60%,
+      transparent 80%);
 }
 
 /* Theme-specific backgrounds for Longevity */
 .organ-systems--longevity {
-  background: 
-    repeating-linear-gradient(
-      0deg,
+  background:
+    repeating-linear-gradient(0deg,
       transparent 0px,
       transparent 60px,
       rgba(180, 140, 30, 0.08) 60px,
-      rgba(180, 140, 30, 0.08) 61px
-    ),
-    repeating-linear-gradient(
-      90deg,
+      rgba(180, 140, 30, 0.08) 61px),
+    repeating-linear-gradient(90deg,
       transparent 0px,
       transparent 60px,
       rgba(180, 140, 30, 0.06) 60px,
-      rgba(180, 140, 30, 0.06) 61px
-    ),
-    linear-gradient(180deg, 
+      rgba(180, 140, 30, 0.06) 61px),
+    linear-gradient(180deg,
       #FAF7EE 0%,
       #FFFDF5 15%,
       #F8F4E8 40%,
       #FAF7EE 70%,
-      rgba(231, 141, 45, 0.08) 100%
-    );
+      rgba(231, 141, 45, 0.08) 100%);
 }
 
 /* Longevity - Gold grid lines (3D perspective) */
 .organ-systems--longevity .organ-systems__grid-plane--horizontal {
-  background-image: 
-    repeating-linear-gradient(
-      0deg,
+  background-image:
+    repeating-linear-gradient(0deg,
       transparent 0px,
       transparent 50px,
       rgba(180, 140, 30, 0.2) 50px,
-      rgba(180, 140, 30, 0.2) 51px
-    );
+      rgba(180, 140, 30, 0.2) 51px);
 }
 
 .organ-systems--longevity .organ-systems__grid-plane--vertical {
-  background-image: 
-    repeating-linear-gradient(
-      90deg,
+  background-image:
+    repeating-linear-gradient(90deg,
       transparent 0px,
       transparent 50px,
       rgba(180, 140, 30, 0.18) 50px,
-      rgba(180, 140, 30, 0.18) 51px
-    );
+      rgba(180, 140, 30, 0.18) 51px);
 }
 
 /* Longevity - Gold distributed glow */
 .organ-systems--longevity .organ-systems__grid-glow {
-  background: 
+  background:
     radial-gradient(ellipse 120% 80% at 20% 30%, rgba(231, 141, 45, 0.28) 0%, rgba(231, 141, 45, 0.12) 40%, transparent 70%),
     radial-gradient(ellipse 120% 80% at 80% 70%, rgba(231, 141, 45, 0.28) 0%, rgba(231, 141, 45, 0.12) 40%, transparent 70%),
     radial-gradient(ellipse 100% 100% at 50% 50%, rgba(231, 141, 45, 0.18) 0%, rgba(231, 141, 45, 0.09) 50%, transparent 80%);
@@ -641,41 +700,36 @@
 
 /* Longevity - Cream-tinted overlay */
 .organ-systems--longevity .organ-systems__grid-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(250, 247, 238, 0.9) 0%,
-    rgba(250, 247, 238, 0.6) 15%,
-    rgba(250, 247, 238, 0.2) 35%,
-    transparent 55%,
-    rgba(248, 244, 232, 0.5) 75%,
-    rgba(250, 247, 238, 0.9) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(250, 247, 238, 0.9) 0%,
+      rgba(250, 247, 238, 0.6) 15%,
+      rgba(250, 247, 238, 0.2) 35%,
+      transparent 55%,
+      rgba(248, 244, 232, 0.5) 75%,
+      rgba(250, 247, 238, 0.9) 100%);
 }
 
 /* Longevity - Gold primary orb */
 .organ-systems--longevity .organ-systems__glow-orb--red {
-  background: radial-gradient(
-    circle,
-    rgba(231, 141, 45, 0.55) 0%,
-    rgba(231, 141, 45, 0.28) 30%,
-    rgba(231, 141, 45, 0.1) 60%,
-    transparent 80%
-  );
+  background: radial-gradient(circle,
+      rgba(231, 141, 45, 0.55) 0%,
+      rgba(231, 141, 45, 0.28) 30%,
+      rgba(231, 141, 45, 0.1) 60%,
+      transparent 80%);
 }
 
 /* Longevity - Warm amber accent orb */
 .organ-systems--longevity .organ-systems__glow-orb--pink {
-  background: radial-gradient(
-    circle,
-    rgba(232, 163, 23, 0.5) 0%,
-    rgba(232, 163, 23, 0.2) 30%,
-    rgba(232, 163, 23, 0.05) 60%,
-    transparent 80%
-  );
+  background: radial-gradient(circle,
+      rgba(232, 163, 23, 0.5) 0%,
+      rgba(232, 163, 23, 0.2) 30%,
+      rgba(232, 163, 23, 0.05) 60%,
+      transparent 80%);
 }
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
+
   .organ-systems__grid-plane--horizontal,
   .organ-systems__grid-plane--vertical,
   .organ-systems__grid-glow,
@@ -687,53 +741,42 @@
 /* Mobile optimization - static grid lines only */
 @media (max-width: 749px) {
   .organ-systems--essentials {
-    background: 
-      repeating-linear-gradient(
-        0deg,
+    background:
+      repeating-linear-gradient(0deg,
         transparent 0px,
         transparent 50px,
         rgba(164, 0, 17, 0.06) 50px,
-        rgba(164, 0, 17, 0.06) 51px
-      ),
-      repeating-linear-gradient(
-        90deg,
+        rgba(164, 0, 17, 0.06) 51px),
+      repeating-linear-gradient(90deg,
         transparent 0px,
         transparent 50px,
         rgba(164, 0, 17, 0.04) 50px,
-        rgba(164, 0, 17, 0.04) 51px
-      ),
-      linear-gradient(180deg, 
+        rgba(164, 0, 17, 0.04) 51px),
+      linear-gradient(180deg,
         #F5EAEA 0%,
         #FDF8F8 15%,
         #F9F1F1 40%,
         #F5EAEA 70%,
-        rgba(164, 0, 17, 0.06) 100%
-      );
+        rgba(164, 0, 17, 0.06) 100%);
   }
-  
+
   .organ-systems--longevity {
-    background: 
-      repeating-linear-gradient(
-        0deg,
+    background:
+      repeating-linear-gradient(0deg,
         transparent 0px,
         transparent 50px,
         rgba(180, 140, 30, 0.06) 50px,
-        rgba(180, 140, 30, 0.06) 51px
-      ),
-      repeating-linear-gradient(
-        90deg,
+        rgba(180, 140, 30, 0.06) 51px),
+      repeating-linear-gradient(90deg,
         transparent 0px,
         transparent 50px,
         rgba(180, 140, 30, 0.04) 50px,
-        rgba(180, 140, 30, 0.04) 51px
-      ),
-      linear-gradient(180deg, 
+        rgba(180, 140, 30, 0.04) 51px),
+      linear-gradient(180deg,
         #FAF7EE 0%,
         #FFFDF5 15%,
         #F8F4E8 40%,
         #FAF7EE 70%,
-        rgba(231, 141, 45, 0.06) 100%
-      );
+        rgba(231, 141, 45, 0.06) 100%);
   }
 }
-

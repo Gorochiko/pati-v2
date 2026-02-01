@@ -53,6 +53,7 @@ export const ProductGallery = () => {
           disabled={thumbStart === 0}
           className="p-1 hover:bg-muted rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
           aria-label="Scroll up"
+          suppressHydrationWarning
         >
           <ChevronUp className="w-5 h-5" />
         </button>
@@ -69,6 +70,7 @@ export const ProductGallery = () => {
                     ? 'border-primary shadow-im8'
                     : 'border-transparent hover:border-muted-foreground/30'
                 }`}
+                suppressHydrationWarning
               >
                 <img
                   src={img.url}
@@ -90,6 +92,7 @@ export const ProductGallery = () => {
           disabled={thumbStart >= images.length - visibleThumbs}
           className="p-1 hover:bg-muted rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex-shrink-0"
           aria-label="Scroll down"
+          suppressHydrationWarning
         >
           <ChevronDown className="w-5 h-5" />
         </button>
@@ -137,6 +140,7 @@ export const ProductGallery = () => {
             onClick={prevImage}
             className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-card hover:bg-background transition-colors"
             aria-label="Previous image"
+            suppressHydrationWarning
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -144,6 +148,7 @@ export const ProductGallery = () => {
             onClick={nextImage}
             className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-background/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-card hover:bg-background transition-colors"
             aria-label="Next image"
+            suppressHydrationWarning
           >
             <ChevronRight className="w-5 h-5" />
           </button>
