@@ -56,8 +56,8 @@ const GoldStandard = () => {
                 <div 
                   key={`daily-${index}`}
                   className={cn(
-                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 bg-[#f5eaea] border-main-dark-red not-last:border-b border-r",
-                    isMore && "last:rounded-bl-xl"
+                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 bg-[#f5eaea] border-b border-r border-main-dark-red",
+                    isMore && index === redData.length - 1 && "rounded-bl-xl border-b-0"
                   )}
                   role="cell"
                 >
@@ -98,8 +98,8 @@ const GoldStandard = () => {
                 <div 
                   key={`leading-${index}`}
                   className={cn(
-                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 text-[#2d3b32] bg-[#b6c0b1] border-main-dark-red not-last:border-b border-l",
-                    isMore && "last:rounded-br-xl"
+                    "flex items-center md:gap-5 gap-2 md:pl-12 md:py-1.25 md:pr-2.5 p-3.75 md:h-14 h-21.25 text-[#2d3b32] bg-[#b6c0b1] border-b border-l border-main-dark-red",
+                    isMore && index === greenData.length - 1 && "rounded-br-xl border-b-0"
                   )}
                   role="cell"
                 >
