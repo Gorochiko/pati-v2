@@ -1,11 +1,11 @@
 import type { AmbassadorReviewType } from "./types";
 
-export const bgImg =
+export const BACKGROUND_IMAGE =
   "https://im8health.com/cdn/shop/files/testimonials.png?v=1727769423";
-export const bgImgSm =
+export const BACKGROUND_IMAGE_MOBILE =
   "https://im8health.com/cdn/shop/files/why_people_like_IM8.png?v=1727769483";
 
-export const ambassadorReviews: AmbassadorReviewType[] = [
+export const AMBASSADORS_DATA: AmbassadorReviewType[] = [
   {
     avatar:
       "//im8health.com/cdn/shop/files/Bobby_Rich_aca1a6fc-96f2-448e-8f8c-17f07a91fad6.png?v=1731574045",

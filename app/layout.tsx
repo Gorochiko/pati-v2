@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { STICKY_BAR_OPTIONS } from "@/components/StickyProductBar/data";
+import { StickyProductBar } from "@/components/StickyProductBar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,8 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         {children}
+        {/* Sticky Product Bar */}
+        <StickyProductBar
+          productImage="https://im8health.com/cdn/shop/files/PDP_060fbac6-1883-4c53-aae5-f791c68056a5.jpg?v=1766566335&width=500"
+          productTitle="Daily Ultimate Essentials: All-in-One Supplement"
+          productVariant="Forever Jar"
+          options={STICKY_BAR_OPTIONS}
+          defaultOptionId="5658043252903"
+          buttonPrice="€91 EUR/mo"
+        />
       </body>
     </html>
   );

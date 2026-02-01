@@ -1,7 +1,7 @@
-import { memo } from "react";
-import FiveStars from "../../public/icons/five-stars";
-import { bgImg, bgImgSm } from "./data";
-import Carousel from "./carousel";
+import React from 'react';
+import { BACKGROUND_IMAGE, BACKGROUND_IMAGE_MOBILE } from './data';
+import { AmbassadorsCarousel } from './AmbassadorsCarousel';
+import { AmbassadorsSectionHeader } from './AmbassadorsSectionHeader';
 
 /**
  * Ambassadors Section Component
@@ -9,40 +9,32 @@ import Carousel from "./carousel";
  */
 const Ambassadors = () => {
   return (
-    <section 
-      id="ambassadors" 
-      className="relative md:py-26 py-14 w-full bg-cover bg-center bg-no-repeat"
+    <section
+      id="ambassadors"
+      className="relative w-full bg-cover bg-center bg-no-repeat py-14 md:py-26"
       style={{
-        backgroundImage: `url(${bgImg})`,
+        backgroundImage: `url(${BACKGROUND_IMAGE})`,
       }}
       aria-labelledby="ambassadors-heading"
     >
       {/* Mobile Background */}
-      <div 
-        className="absolute inset-0 -z-10 md:hidden bg-cover bg-center bg-no-repeat"
+      <div
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat md:hidden"
         style={{
-          backgroundImage: `url(${bgImgSm})`,
+          backgroundImage: `url(${BACKGROUND_IMAGE_MOBILE})`,
         }}
         aria-hidden="true"
       />
-      
+
       <div className="flex flex-col gap-14">
         {/* Section Header */}
-        <header className="flex flex-col gap-6 items-center justify-center">
-          <div className="flex items-center gap-4">
-            <FiveStars aria-hidden="true" />
-            <p className="uppercase text-sm text-[#50000B] font-nb">Feel The Difference</p>
-          </div>
-          <h2 id="ambassadors-heading" className="font-arizona md:text-[54px] text-[40px] leading-11 text-center text-[#50000B]">
-            What Our IM8 Ambassadors Are Saying
-          </h2>
-        </header>
-        
+        <AmbassadorsSectionHeader />
+
         {/* Carousel */}
-        <Carousel />
+        <AmbassadorsCarousel />
       </div>
     </section>
   );
 };
 
-export default memo(Ambassadors);
+export default React.memo(Ambassadors);
