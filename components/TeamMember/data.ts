@@ -1,11 +1,17 @@
 import type { MemberType } from "./types";
 
-export const bgImg =
+/**
+ * Background images for TeamMember section
+ */
+export const BACKGROUND_IMAGE =
   "https://im8health.com/cdn/shop/files/scientists-min.jpg?v=1727597898&width=1944";
-export const bgImgSm =
+export const BACKGROUND_IMAGE_MOBILE =
   "https://im8health.com/cdn/shop/files/scientists-min.jpg?v=1727597898&width=1944";
 
-export const teamMembers: MemberType[] = [
+/**
+ * Team members data array
+ */
+export const TEAM_MEMBERS: MemberType[] = [
   {
     name: "Prof. Suzanne Devkota",
     img: "//im8health.com/cdn/shop/files/Frame_1000004731.png?v=1727767462",
