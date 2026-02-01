@@ -13,7 +13,7 @@ export const ProductHeader = ({ productImg, title }: ProductHeaderProps) => {
           className="absolute -top-4 left-0 h-full w-[120%] object-contain object-center lg:-top-8 max-md:-top-3"
         />
       </div>
-      <p className="text-base leading-[1.3] max-md:text-center max-md:text-xs lg:text-sm">
+      <p className="text-base  leading-[1.3] max-md:text-center max-md:text-xs lg:text-sm">
         {title}
       </p>
     </div>

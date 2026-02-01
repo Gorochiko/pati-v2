@@ -3,7 +3,7 @@ import { StickyPromoBar } from '@/components/StickyPromoBar';
 import { ProductGallery } from '@/components/ProductGallery';
 import { ProductInfo } from '@/components/ProductInfo';
 import { ProductAccordion } from '@/components/ProductAccordion';
-import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
+import { AmbassadorTestimonials } from '@/components/ProductInfo/AmbassadorTestimonials';
 import ClinicalStudiesSection from '@/components/ClinicalStudiesSection';
 import StaticReviewsSection from '@/components/StaticReviewsSection';
 import { FivePillars } from '@/components/FivePillars';
@@ -12,7 +12,8 @@ import Footer from '@/components/Footer';
 import Faqs from '../components/FAQ';
 import Premium from '@/components/Premium';
 import BeckhamStack from '@/components/BeckhamStack';
-
+import TeamMember from '@/components/TeamMember';
+import Ambassadors from '@/components/ambassadors';
 // import OrganSystems from '@/components/OrganSystems';
 // import {ComparisonTable} from '../components/ComparisonTable';
 // import { AmbassadorTestimonials } from '@/components/AmbassadorTestimonials';
@@ -103,6 +104,12 @@ export default function Home() {
 
       {/* Related Products */}
       {/* <RelatedProducts /> */}
+
+      {/* Ambassador Section */}
+      <Ambassadors />
+
+      {/* Team */}
+      <TeamMember />
 
       {/* Beckham Stack */}
       <BeckhamStack />

@@ -79,6 +79,7 @@ export const Header = () => {
               <button
                 className="lg:hidden p-2 -ml-2 hover:opacity-70"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                suppressHydrationWarning
               >
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M2 16H30" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />
@@ -96,6 +97,7 @@ export const Header = () => {
                         onMouseEnter={() => setIsShopMenuOpen(true)}
                         onMouseLeave={() => setIsShopMenuOpen(false)}
                         className="flex items-center font-bold  gap-1 text-[#50000b] hover:opacity-70 transition-opacity py-2"
+                        suppressHydrationWarning
                       >
                         <span>{item.label}</span>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="w-3 h-3">
@@ -140,6 +142,7 @@ export const Header = () => {
                         onMouseEnter={() => setIsDiscoverMenuOpen(true)}
                         onMouseLeave={() => setIsDiscoverMenuOpen(false)}
                         className="flex items-center gap-1 font-bold text-[#50000b] hover:opacity-70 transition-opacity py-2"
+                        suppressHydrationWarning
                       >
                         <span>{item.label}</span>
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" className="w-3 h-3">
@@ -190,6 +193,7 @@ export const Header = () => {
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="mb-6"
+                suppressHydrationWarning
               >
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                   <path d="M25.428 6.57227L6.57178 25.4284M25.428 25.4284L6.57184 6.57227" stroke="#A40011" strokeWidth="2" strokeLinecap="square" />

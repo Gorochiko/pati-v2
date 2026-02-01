@@ -1,5 +1,5 @@
 import Container from "@/components/ui/Container";
-import { advancedBenefitData, immediateBenefitData } from "./mock-data";
+import { advancedBenefitData, immediateBenefitData } from "./data";
 import { SectionHeader } from "./SectionHeader";
 import { ComparisonTable } from "./ComparisonTable";
 

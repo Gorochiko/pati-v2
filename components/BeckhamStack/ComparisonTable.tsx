@@ -1,4 +1,4 @@
-import { beckhamProductImg, dailyProductImg } from "./mock-data";
+import { beckhamProductImg, dailyProductImg } from "./data";
 import { ProductHeader } from "./ProductHeader";
 import { BenefitRow } from "./BenefitRow";
 import { PriceRow } from "./PriceRow";
